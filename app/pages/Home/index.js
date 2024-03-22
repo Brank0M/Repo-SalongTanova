@@ -73,6 +73,8 @@ export default class Home extends Page {
       });
     };
 
+    showSlide(currentIndex);
+
     const goToNextSlide = () => {
       currentIndex = (currentIndex + 1) % sliderBoxes.length;
       showSlide(currentIndex);
