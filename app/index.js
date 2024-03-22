@@ -7,7 +7,7 @@ class App {
   constructor() {
     this.createContent();
     this.createPages();
-    this.addEventListeners();
+    // this.addEventListeners();
   }
 
   createContent() {
@@ -27,40 +27,40 @@ class App {
     this.page.create();
   }
 
-  addEventListeners() {
-    window.addEventListener('popstate', this.onPopState.bind(this));
-  }
+  //   addEventListeners() {
+  //     window.addEventListener('popstate', this.onPopState.bind(this));
+  //   }
 
-  onPopState() {
-    this.onChange({ url: window.location.pathname });
-  }
+  //   onPopState() {
+  //     this.onChange({ url: window.location.pathname });
+  //   }
 
-  onChange({ url, push = false }) {
-    const request = new XMLHttpRequest();
+  //   onChange({ url, push = false }) {
+  //     const request = new XMLHttpRequest();
 
-    request.open('GET', url, true);
-    request.onload = () => {
-      this.onContent({ push, request });
-    };
-    request.send();
-  }
+  //     request.open('GET', url, true);
+  //     request.onload = () => {
+  //       this.onContent({ push, request });
+  //     };
+  //     request.send();
+  //   }
 
-  onContent({ push, request }) {
-    const parser = new DOMParser();
-    const htmlDocument = parser.parseFromString(request.response, 'text/html');
-    const content = htmlDocument.querySelector('.content');
+  //   onContent({ push, request }) {
+  //     const parser = new DOMParser();
+  //     const htmlDocument = parser.parseFromString(request.response, 'text/html');
+  //     const content = htmlDocument.querySelector('.content');
 
-    this.content.replaceWith(content);
+  //     this.content.replaceWith(content);
 
-    this.content = content;
-    this.template = this.content.getAttribute('data-template');
+  //     this.content = content;
+  //     this.template = this.content.getAttribute('data-template');
 
-    if (push) {
-      window.history.pushState({}, '', url);
-    }
+  //     if (push) {
+  //       window.history.pushState({}, '', url);
+  //     }
 
-    this.createPages();
-  }
+  //     this.createPages();
+  //   }
 }
 
 new App();

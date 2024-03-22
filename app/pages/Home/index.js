@@ -24,7 +24,6 @@ export default class Home extends Page {
         ".home_switch_img_box img[src='../images/img2.jpg']",
         ".home_switch_img_box img[src='../images/img4.jpg']"
       );
-      // this.initReloader();
     });
 
     window.addEventListener('resize', this.adjustVideoSize);
@@ -32,6 +31,11 @@ export default class Home extends Page {
 
   adjustVideoSize = () => {
     const videoContainer = document.querySelector('.home_video');
+
+    if (!videoContainer) {
+      return;
+    }
+
     const video = videoContainer.querySelector('video');
     const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
 
@@ -52,6 +56,11 @@ export default class Home extends Page {
 
   initTextAnimation = (selector) => {
     const textElement = document.querySelector(selector);
+
+    if (!textElement) {
+      return;
+    }
+
     const animatedText = textElement.innerText
       .split('')
       .map(
@@ -67,6 +76,10 @@ export default class Home extends Page {
     const sliderBoxes = document.querySelectorAll(sliderSelector);
     const btnArrow = document.querySelector(buttonSelector);
     let currentIndex = 0;
+
+    if (sliderBoxes.length === 0 || !btnArrow) {
+      return;
+    }
 
     const showSlide = (index) => {
       sliderBoxes.forEach((box, i) => {
@@ -110,24 +123,19 @@ export default class Home extends Page {
     const imgWoman = document.querySelector(imgWomanSelector);
     const imgMan = document.querySelector(imgManSelector);
 
+    if (!buttonSwitch || !imgWoman || !imgMan) {
+      return;
+    }
+
     buttonSwitch.addEventListener('mouseover', (event) => {
       const button = event.target.closest('a.button');
 
       if (button) {
-        const isWoman = button.textContent === 'Woman';
+        const isWoman = button.textContent.trim() === 'Woman';
         button.textContent = isWoman ? 'Man' : 'Woman';
         imgWoman.classList.toggle('active', !isWoman);
         imgMan.classList.toggle('active', isWoman);
       }
     });
   };
-
-  // initReloader = () => {
-  //   const reloader = document.querySelector('.home_reloader');
-  //   const reloaderButton = reloader.querySelector('a.button');
-
-  //   reloaderButton.addEventListener('click', () => {
-  //     location.reload();
-  //   });
-  // };
 }

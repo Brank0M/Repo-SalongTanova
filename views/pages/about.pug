@@ -4,8 +4,34 @@ block variables
   - var template = 'about'
 
 block content
-  h1.home_title About
-    .about
-      .about_wrapper
-        p 
-        img(src="../images/img1.jpg", alt="...")
+  .about
+    .about_wrapper
+      .about_title
+        .about_title_wrapper
+          h2 About Us
+      .about_subtitle 
+        p We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.
+
+      .about_content
+        - var images = []
+        - images.push({ src: "images/about1.png", alt: "About Us", text: "We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.", alignment: "left"})
+        - images.push({ src: "images/about2.png", alt: "About Us", text: "We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.", alignment: "right" })
+        - images.push({ src: "images/about3.png", alt: "About Us", text: "We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.", alignment: "left"})
+        - images.push({ src: "logo/keune.png", alt: "About Us", text: "We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.", alignment: "right"})
+
+      each item, index in images
+        if item.alignment === 'left'
+          .about_content.about_content--left
+            .about_image
+              img(src=item.src, alt=item.alt)
+            .about_text_img
+              p= item.text
+        else
+          .about_content.about_content--right
+            .about_text_img
+              p= item.text
+            .about_image
+              img(src=item.src, alt=item.alt)
+
+      .about_text 
+        p We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.
