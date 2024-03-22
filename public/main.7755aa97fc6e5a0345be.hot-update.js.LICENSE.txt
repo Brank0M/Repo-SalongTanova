@@ -1,0 +1,11 @@
+/*! pages/About */
+
+/*! pages/Contact */
+
+/*! pages/Home */
+
+/*! pages/Prices */
+
+/*!**********************!*\
+  !*** ./app/index.js ***!
+  \**********************/
