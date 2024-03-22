@@ -1,0 +1,621 @@
+// .home {
+// }
+// Section 1
+a,
+h3 {
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #000;
+}
+
+.home_div {
+  width: 100%;
+  position: relative;
+}
+
+.home_section_1,
+.home_section_2,
+.home_section_3,
+.home_section_4,
+.home_section_5,
+.home_section_6 {
+  display: flex;
+}
+
+.home_section_work,
+.home_video {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  // border: 1px red solid; // Remove
+}
+
+.home_section_work {
+  flex: 1;
+  margin-bottom: 4rem;
+}
+
+.home_video {
+  flex: 25;
+  position: relative;
+  width: 100%;
+  max-height: 85vh;
+  margin-bottom: 4rem;
+  overflow: hidden;
+}
+
+video,
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home_btn_work {
+  position: absolute;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  transform: rotate(-90deg);
+  font-size: 1rem;
+  // border: 1px red solid; // Remove
+  h3 {
+    transition: font-size 0.25s;
+    letter-spacing: 0.5rem;
+    cursor: pointer;
+  }
+
+  h3 span {
+    color: #000;
+    transition: 0.25s;
+  }
+
+  h3:hover span {
+      color: red;
+    }
+}
+
+.home_btn_call a {
+  white-space: nowrap;
+  text-transform: uppercase;
+  text-decoration: none;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  h3 {
+    color: red;
+    font-size: 2rem;
+    font-weight: 400 ;
+    transition: font-size 0.3s ease-in-out;
+  }
+  &:hover {
+    cursor: pointer;
+    h3 {
+      font-size: 2.2rem;
+    }
+  }
+}
+// Section 2
+.home_section_2 {
+  padding: 4rem 8rem;
+  // border: 1px red solid; // Remove
+  @include media('<phone') {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home_section_content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0rem 15rem 0rem 0rem;
+    position: relative;
+    // border: 1px red solid; // Remove
+  }
+
+  @include media('<phone') {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    grid-gap: 1rem;
+  }
+}
+
+.home_slide_title,
+.home_slide_text,
+.home_slide_btn {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  text-transform: uppercase;
+}
+
+.home_slide_title,
+.home_slide_text {
+  width: 10rem;
+  height: 10rem;
+
+  @include media('<phone') {
+    width: 100%;
+    height: 100%;
+  }
+    .home_slide_title {
+      @include media('<phone') {
+        grid-row: 1;
+      }
+    }
+}
+
+.home_slide_text {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0;
+
+  @include media('<phone') {
+    grid-row: 2;
+    align-items: center;
+  }
+}
+
+.home_text_box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.home_text_box, .home_title_box {
+  @include media('<phone') {
+    font-size: 2rem;
+  }
+}
+
+.home_slide_btn {
+  position: absolute;
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+  padding: 1rem;
+  border: 1px red solid;
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 8rem;
+  height: 8rem;
+  &:hover {
+    background-color: #dad9d9;
+    color: #fff;
+  }
+
+  @include media('<phone') {
+    display: none;
+  }
+}
+
+.btn_arrow {
+  cursor: pointer;
+  rotate: 270deg;
+}
+
+.home_slide_slider {
+  position: relative;
+  width: 40rem; 
+  height: 40rem; 
+  overflow: hidden;
+
+  @include media('<phone') {
+    grid-row: 3;
+    width: 100%;
+    overflow-x: auto;
+    // border: 1px red solid; // Remove
+  }
+
+  .home_slider_box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    z-index: 1;
+
+    &.active {
+      opacity: 1;
+      z-index: 2;
+    }
+  }
+}
+// Section 3
+.home_section_3 {
+  padding: 4rem 8rem;
+  display: flex;
+  justify-content: center; // Center the container horizontally
+  align-items: center; // Center the container vertically
+  // border: 1px red solid; // Remove
+}
+
+.home_section_switch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  // border: 1px red solid; // Remove
+  @include media('<phone') {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+.home_switch_btn {
+  position: absolute;
+  top: 5% ; 
+  left: 110%; 
+  transform: translateY(-50%); 
+
+  @include media('<phone') {
+    position: static;
+    transform: none;
+    margin-top: 1rem 0;
+    width: 100%;
+  }
+}
+
+.home_switch_btn a {
+  text-decoration: none;
+  color: #000;
+  font-size: 4rem;
+  position: relative;
+  transition: color 0.3s ease; 
+  // border: 1px red solid; // Remove
+  &:hover {
+    // color: #fff;
+    cursor: pointer;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transition: width 0.3s ease; 
+  }
+
+  &:hover::before {
+    width: 100%; 
+  }
+
+  @include media('<phone') {
+    font-size: 2rem;
+    padding: 0.5rem;
+    width: auto;
+  }
+}
+
+.home_switch_img_box {
+  width: 40rem;
+  height: 37rem;
+  object-fit: cover;
+  margin-bottom: 20px;
+  position: relative;
+
+  @include media('<phone') {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+}
+
+.home_switch_img_box img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+
+  @include media('<phone') {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: auto;
+    left: auto;
+    opacity: 1;
+    &:not(.active) {
+      display: none;
+    }
+  }
+}
+
+.home_switch_img_box img.active {
+  opacity: 1; 
+}
+
+.home_switch_title {
+  width: 60%;
+  margin-top: 20px; 
+  text-align: center; 
+
+  @include media('<phone') {
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
+.home_switch_title_box {
+  // border: 1px red solid; // Remove
+}
+//Section 4
+.home_section_4 {
+  padding: 4rem 8rem;
+  // border: 1px red solid; // Remove
+}
+
+// .home_section_keune {}
+
+.home_keune_slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  // border: 1px red solid; // Remove
+}
+
+.home_keune_slider_box {
+  position: relative;
+  width: 100%;
+  height: 16rem;
+  overflow: hidden;
+}
+
+.home_keune_slider_box img.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.home_keune_text {
+  justify-items: center;
+  align-items: center;
+  padding: 4rem;
+  // border: 1px red solid; // Remove
+}
+
+.home_keune_text_box {
+  text-align: center;
+}
+
+.home_keune_img {
+  display: flex;
+  // border: 1px red solid; // Remove
+}
+
+.home_keune_img_box {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  img {
+    width: 20%; 
+    // border: 1px red solid; /* Optional: Border for each image */
+    @include media('<phone') {
+      display: none;
+      width: 100%;
+
+      &:first-child {
+        display: block;
+      }
+    }
+  }
+}
+//Section 5
+.home_section_5 {
+  padding: 4rem 8rem;
+  // border: 1px red solid; // Remove
+}
+.home_section_map {
+  display: flex;
+  // border: 1px red solid; // Remove
+  @include media('<phone') {
+    flex-direction: column;
+  }
+}
+.home_map_text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  // border: 1px red solid; // Remove
+  @include media('<phone') {
+    flex: none;
+    width: 100%;
+  }
+
+}
+.home_map_text_box {
+  text-align: center;
+  margin: 2rem;
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+}
+
+.home_map_logo {
+  position: absolute;
+  top: 2rem;
+  left: 4rem;
+  // border: 1px red solid; // Remove
+}
+
+.home_map_logo_box {
+  top: 5px;
+  left: 70%;
+  width: 5rem;
+  height: 5rem;
+}
+
+.home_map_img {
+  display: flex;
+  position: relative;
+  flex: 1.5;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // border: 1px red solid; // Remove
+    @include media('<phone') {
+      flex: none;
+      width: 100%;
+    }
+}
+
+.home_map_img_box {
+  width: 40rem;
+  height: 40rem;
+  object-fit: cover;
+  transition: transform 0.3s ease; 
+  
+  &:hover {
+    transform: scale(1.02); 
+  }
+
+  @include media('<phone') {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+// Section 6
+.home_section_6 {
+  padding: 4rem 8rem;
+  // border: 1px red solid; // Remove
+}
+
+.home_section_about {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  // border: 1px red solid; // Remove
+  @include media('<phone') {
+    width: 100%;
+  }
+}
+
+.home_about_btn{
+  width: 100%;
+  background-color: #4C3525;
+  h3 {
+    font-size: 2rem;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+    font-weight: 300;
+  }
+
+  h3 span {
+    color: #fff;
+    transition: 0.25s;
+  }
+
+  &:hover {
+    h3 span {
+      color: #fffafa;
+      text-shadow: 0 0 4px #fffafa, 
+                    0 0 8px #fffafa, 
+                      0 0 12px #fffafa;
+    }
+  }
+}
+
+.home_about_btn_box {
+  display: inline-block;
+  padding: 1rem 2rem;
+  width: 100;
+  // border: 1px red solid; // Remove
+  h3 {
+    color: #fff;
+  }
+}
+
+.home_about_img {
+  display: flex;
+  justify-content: center; 
+  margin-top: 1rem; 
+
+  @include media('<phone') {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.home_about_img_box_1, .home_about_img_box_2 {
+  flex: 1;
+  height: 40rem;
+  margin: 4rem;
+  // border: 1px red solid; // Remove
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; 
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.02); 
+    }
+  }
+
+  @include media('<phone') {
+    margin: 0;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+}
+
+// .home_about_btn_2 {}
+
+.home_about_btn_box_2 {
+  h3{
+    text-decoration: none;
+    padding: 1rem 8rem;
+    border: 1px red solid; 
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: all 0.5s ease;
+    font-size: small;
+  }
+
+  h3:hover {
+    font-weight: 300;
+    letter-spacing: 7px;
+    border: 1px red solid;
+  }
+
+  @include media('<phone') {
+    h3 {
+      padding: 1rem 26rem;
+    }
+  }
+}
+

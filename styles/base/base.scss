@@ -1,0 +1,75 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+html {
+    // @extend %cover;
+
+    // background: $color-contessa;
+    // color: $color-quarter-spanish-white;
+    font-size: calc(100vw / 1920px * 20px);
+    // line-height: 1;
+    // position: fixed;
+    // overflow: hidden;
+
+    @include media('<phone') {
+        font-size: calc(100vw / 750px * 10px);
+    }
+}
+
+body {
+    // @extend %cover;
+    // @extend %description-16;
+
+    font-family:'Segoe UI';
+    font-size: 1.6rem;
+    font-weight: 300;
+    // position: fixed;
+}
+
+// a {
+//     color: inherit;
+//     outline: none;
+//     text-decoration: none;
+// }
+
+// button {
+//     background: none;
+//     border: none;
+//     color: inherit;
+//     cursor: pointer;
+//     outline: none;
+// }
+
+// canvas { 
+//     position: relative;
+//     pointer-events: none;
+//     z-index: z('canvas');
+// }
+
+// img {
+    // opacity: 0;
+    // transition: opacity 0.4s ease;
+    // vertical-align: middle;
+
+    // &.loaded {
+    //     opacity: 1;
+    // }
+// }
+
+// .content {
+//     @extend %cover;
+// }
+
+// [data-animation="title"],
+// [data-animation="paragraph"],
+// [data-animation="label"] {
+//     span {
+//         display: inline-block;
+//         overflow: hidden;
+//         vertical-align: top;
+//     }
+// }
