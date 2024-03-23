@@ -6,6 +6,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
+// const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
+// const glob = require('glob');
 // const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const IS_DEVELOPMENT = process.env.NODE_ENV === 'development';
@@ -36,6 +38,14 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    // new PurgeCSSPlugin({
+    //   paths: glob.sync(`${path.join(__dirname, 'app')}/**/*`, { nodir: true }),
+    //   safelist: function () {
+    //     return {
+    //       standard: [], // Add classes to keep
+    //     };
+    //   },
+    // }),
     new ImageMinimizerPlugin({
       // Minifies images
       minimizer: {
