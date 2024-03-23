@@ -8,16 +8,22 @@ block content
     .about_wrapper
       .about_title
         .about_title_wrapper
-          h2 About Us
+          h2 Salong Tanova
       .about_subtitle 
-        p We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.
+        p 
+          | Välkommen till Salong Tanova grundades år 2024 av mig, Tanja Jovanova. <p>
+          | Vid Salong Tanova är varje kund unik, och jag strävar alltid efter att förstå och uppfylla mina kunders individuella behov och önskemål. 
+          | Oavsett om det handlar om en ny frisyr, färgbehandling eller styling, kommer vi att arbeta med dig för att skapa en look som passar din personlighet och livsstil.
+          | På Salong Tanova kan du förvänta dig en professionell och vänlig atmosfär där du kan slappna av och känna dig väl omhändertagen. 
+          | Tack för att du valde Salong Tanova för dina skönhetsbehov. Vi på salongen ser fram emot att välkomna dig och skapa en fantastisk upplevelse tillsammans! <p>Varmt välkommen.<p> 
+          | Tanja Jovanova Grundare, <p>Salong Tanova
 
       .about_content
         - var images = []
-        - images.push({ src: "images/about1.png", alt: "About Us", text: "We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.", alignment: "left"})
-        - images.push({ src: "images/about2.png", alt: "About Us", text: "We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.", alignment: "right" })
-        - images.push({ src: "images/about3.png", alt: "About Us", text: "We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.", alignment: "left"})
-        - images.push({ src: "logo/keune.png", alt: "About Us", text: "We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.", alignment: "right"})
+        - images.push({ src: "images/about3.png", alt: "About Us", text: "Med över ett decenniums erfarenhet inom frisöryrket har jag en passion för att skapa fantastiska och personliga upplevelser för mina kunder. Mitt mål är att erbjuda högkvalitativa tjänster och skapa en frisörsalong där varje besök blir en minnesvärd upplevelse. Min resa inom frisörbranschen började för många år sedan med en brinnande passion för skönhet och kreativitet. Efter år av hårt arbete och dedikation har jag följt min dröm att öppna min egen salong, där jag kan förverkliga min vision av personlig service och skönhetstjänster av högsta kvalitet. ", alignment: "left"})
+        - images.push({ src: "images/about2.png", alt: "About Us", text: "Mit namn är Natalie och jag har jobbat som frisör i 12år. Min passion är hår och kreativitet, och jag brinner för att skapa frisyer som både är snygga och kvalitativa. På Salong Tanova kommer jag att erbjuda dig en lyxig upplevelse med fokus på dina individuella behov. Jag tar mig tid att lyssna på dina önskemål och skrapar en frisyr som passar din stil och personlighet. Jag ser fram emot ditt beslök", alignment: "right" })
+        - images.push({ src: "images/about1.png", alt: "About Us", text: "Mitt namn är Sofia och jag är 21 år gammal. Jag tog studenten från frisörprogrammet år 2022 och har sedan dess jobbat som frisör i ungefär ett år. Nu har jag äntligen hittat till Salong Tanova, en salong som matchar min passion för yrket och där jag verkligen känner att jag kan utvecklas. Jag inspireras dagligen av mina härliga kollegor och den positiva atmosfären på salongen. Jag ser fram emot att möta dig och ge dig en personlig och professionell hårvårdsupplevelse!", alignment: "left"})
+        - images.push({ src: "logo/keune.png", alt: "About Us", text: "Sedan 1922 har vi tillverkat hårprodukter för proffs. Men vi är så mycket mer än bara en leverantör. Alla salonger som jobbar med oss är en del av familjen Keune. Vi säger det inte bara för att vi är ett familjeföretag, utan för att det passar vår stil. Vi vill bara det bästa för dig när du sitter i en av våra stolar. Det är därför vi gör affärer med en personlig touch.", alignment: "right"})
 
       each item, index in images
         if item.alignment === 'left'
@@ -34,4 +40,7 @@ block content
               img(src=item.src, alt=item.alt)
 
       .about_text 
-        p We are a team of professionals who are passionate about what we do. We are here to help you look and feel your best.
+        p 
+          | Välkommen till Salong Tanova! <hr>  
+          | Tanja Jovanova Grundare
+

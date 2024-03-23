@@ -1,87 +1,85 @@
 .footer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0rem 4rem;
-    background-color: #040404;
-    color: #fff;
+  @extend %cover;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 4rem;
+  background-color: #040404;
+  color: #fff;
 }
 
 .footer_box {
-    display: flex;
-    justify-content: space-evenly;
-    width: 100%;
-    margin-top: 4rem;
-    margin-bottom: 4rem;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
-.footer_follow, .footer_about, .footer_prices, .footer_contact {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.footer_follow,
+.footer_about,
+.footer_prices,
+.footer_contact {
+  @extend %cover;
+  flex: 1;
+  align-items: center;
 }
 
 .footer_box .button {
-    text-decoration: none;
+  text-decoration: none;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 2rem;
+  border: 1px solid #707070;
+  min-width: 200px;
+  box-sizing: border-box;
+
+  h3 {
     color: #fff;
-    text-align: center;
-    padding: 1rem 2rem;
-    border: 1px solid #707070; /* Set border to transparent */
-    min-width: 200px; /* Set minimum width for consistent size */
-    box-sizing: border-box; 
+    font-size: smaller;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 
-    h3{
-        color: #fff;
-        font-size: smaller;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-
-    p {
-        font-size: small;
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
+  p {
+    font-size: small;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .footer_box .button:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .footer_ma {
-    width: 100%;
-    border-top: 1px solid red;
-    text-align: center;
-    
-    p {
-        font-size: small;
-    }
+  width: 100%;
+  border-top: 1px solid red;
+  text-align: center;
+
+  p {
+    font-size: small;
+  }
 }
 
-// Media query for smaller screens (tablets)
 @media only screen and (max-width: 1024px) {
-    .footer {
-      padding: 0rem 2rem; // Adjust padding for smaller screens
-    }
-  
-    .footer_box {
-      flex-direction: column; // Change flex direction for smaller screens
-      margin-top: 2rem; // Adjust margin for smaller screens
-      margin-bottom: 2rem; // Adjust margin for smaller screens
-    }
-  
-    .footer_follow,
-    .footer_about,
-    .footer_prices,
-    .footer_contact {
-      margin-bottom: 2rem; // Adjust margin for smaller screens
-    }
-  
-    .footer_box .button {
-    //   min-width: auto; // Remove minimum width for buttons on smaller screens
-    width: 100%; // Set width to 100% for buttons on smaller screens
-    }
+  .footer {
+    padding: 0rem 2rem;
   }
-  
+
+  .footer_box {
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer_follow,
+  .footer_about,
+  .footer_prices,
+  .footer_contact {
+    margin-bottom: 2rem;
+  }
+
+  .footer_box .button {
+    width: 100%;
+  }
+}
