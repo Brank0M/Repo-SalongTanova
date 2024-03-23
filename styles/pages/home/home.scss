@@ -212,12 +212,9 @@ img {
   }
 
   .home_slider_box {
-    position: absolute;
-    top: 0;
-    left: 0;
+    @extend %mixins;
     width: 100%;
     height: 100%;
-    opacity: 0;
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
     z-index: 1;
 
@@ -236,8 +233,7 @@ img {
   @extend %cover;
   @extend %center;
   @include media('<phone') {
-    flex-direction: column;
-    justify-content: flex-start;
+    @extend %cover;
     width: 100%;
   }
 }
@@ -271,9 +267,9 @@ img {
     content: '';
     position: absolute;
     width: 0;
-    height: 1px;
     bottom: 0;
     left: 0;
+    height: 1px;
     background-color: #000;
     transition: width 0.3s ease;
   }
@@ -304,10 +300,7 @@ img {
 }
 
 .home_switch_img_box img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
+  @extend %mixins;
   transition: opacity 0.3s ease;
 
   @include media('<phone') {
@@ -362,8 +355,7 @@ img {
 }
 
 .home_keune_text {
-  justify-items: center;
-  align-items: center;
+  @extend %center;
   padding: 4rem;
 }
 
@@ -411,12 +403,12 @@ img {
   text-align: center;
   margin: 2rem;
   h2 {
-    font-size: 2rem;
+    @extend %title-20;
     font-weight: 700;
     margin-bottom: 1rem;
   }
   h4 {
-    font-size: 1.5rem;
+    @extend %title-20;
     font-weight: 400;
     margin-bottom: 1rem;
   }
@@ -477,7 +469,7 @@ img {
   width: 100%;
   background-color: #4c3525;
   h3 {
-    font-size: 2rem;
+    // font-size: 2rem;
     letter-spacing: 0.05rem;
     text-transform: uppercase;
     font-weight: 300;
