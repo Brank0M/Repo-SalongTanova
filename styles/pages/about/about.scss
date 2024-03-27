@@ -1,145 +1,130 @@
 .about {
-  @extend %cover;
-  align-items: center;
-
-  &_wrapper {
-    width: 80%;
-    margin: 0 auto;
-    padding: 4rem 8rem;
-
-    @include media('<phone') {
-      padding: 3rem 1rem;
-    }
-  }
-
-  &_title {
-    @extend %title-30;
-    padding: 2rem;
+  &_title_wrapper {
+    position: relative;
     text-align: center;
-    background-color: #e0dddd;
-    border-top: 3px solid #eab74c;
-    border-left: 3px solid #eab74c;
-    border-right: 3px solid #eab74c;
+    color: #fff;
 
-    @include media('<phone') {
-      text-align: center;
-      padding: 1rem;
-      font-size: 5.2rem;
+    .about_title_image {
+      width: 100%;
+    }
+
+    .about_title_text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      .title_1,
+      .title_2 {
+        font-size: 4rem;
+        line-height: 1.5;
+
+        @include media('<phone') {
+          .title_1,
+          .title_2 {
+            font-size: 5rem;
+          }
+        }
+      }
     }
   }
 
   &_subtitle {
-    @extend %title-10;
-    padding: 2rem;
+    max-width: 80rem;
+    padding: 4rem 8rem;
     text-align: center;
-    background-color: #e0dddd;
-    border-bottom: 3px solid #eab74c;
-    border-left: 3px solid #eab74c;
-    border-right: 3px solid #eab74c;
+    margin: 0 auto;
 
     @include media('<phone') {
-      text-align: center;
-      margin-bottom: 3rem;
-      padding: 2rem, 1rem;
       font-size: 2.5rem;
     }
   }
 
   &_text {
-    @extend %title-10;
-    padding: 2rem;
     text-align: center;
-    background-color: #e0dddd;
-    border: 3px solid #eab74c;
+  }
 
-    @include media('<phone') {
-      text-align: center;
-      padding: 1rem;
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-    }
+  .title_3 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 3rem;
   }
 
   &_content {
-    @extend %center;
+    @extend %cover;
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+
+  &_content_item {
     display: flex;
-    margin: 1rem 0;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 2rem;
 
     @include media('<phone') {
       flex-direction: column;
       align-items: center;
     }
 
-    &--left,
-    &--right {
-      .about_image,
-      .about_text_img {
-        width: 45%;
-        padding: 2rem;
+    img,
+    .about_text {
+      width: 30%;
+      box-sizing: border-box;
+
+      .text_h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+
+        @include media('<phone') {
+          font-size: 4rem;
+        }
+      }
+
+      .text_role {
+        font-size: 2rem;
+        font-style: italic;
+
+        @include media('<phone') {
+          font-size: 3rem;
+        }
+      }
+
+      .text_p {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+
+        @include media('<phone') {
+          font-size: 2.5rem;
+        }
       }
 
       @include media('<phone') {
-        .about_image,
-        .about_text_img {
-          width: 100%;
-          margin-top: 3rem;
-          margin-bottom: 3rem;
-          text-align: center;
-          padding: 1rem;
-          order: 1;
-        }
+        padding: 4rem 8rem;
+        width: 100%;
+        font-size: 2.5rem;
       }
     }
 
-    &--left {
-      .about_image {
-        order: 1;
+    &.about_content--right {
+      flex-direction: row-reverse;
 
-        @include media('<phone') {
-          order: 2;
-        }
-      }
-
-      .about_text_img {
-        order: 2;
-        @extend %title-10;
-        // padding-left: 4rem;
-
-        @include media('<phone') {
-          // order: 1;
-          font-size: 2.5rem;
-        }
-      }
-    }
-
-    &--right {
-      .about_image {
-        order: 2;
-
-        @include media('<phone') {
-          order: 1;
-        }
-      }
-
-      .about_text_img {
-        order: 1;
-        @extend %title-10;
-        // padding-right: 4rem;
-
-        @include media('<phone') {
-          order: 2;
-          font-size: 2.5rem;
-        }
+      @include media('<phone') {
+        flex-direction: column-reverse;
+        align-items: center;
       }
     }
   }
 
-  img {
-    width: 80%;
-    height: auto;
+  .about_text_bottom {
+    text-align: center;
+    border: 1px solid red;
+    padding: 20px;
 
     @include media('<phone') {
-      width: 100%;
+      font-size: 2.5rem;
     }
   }
 }
