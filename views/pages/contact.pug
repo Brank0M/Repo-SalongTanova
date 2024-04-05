@@ -9,12 +9,12 @@ block content
     .contact_wrapper
       section.contact_section
         .contact_logo
-          img.img_shop(src="logo/logo_large.png", alt="large image")
+          img.img_shop.img_wrap(src="logo/logo_large.png", alt="large image")
           .container
             .container_left
               .imgText.lcol-1
                 .box-1
-                  img(src="images/frisor.jpg", alt="image")
+                  img.img_wrap(src="images/frisor.jpg", alt="image")
                 .box-2
                   p 
                     | We are here to help you with any questions you may have. Feel free to contact us and we will get back to you as soon as possible.
@@ -24,16 +24,15 @@ block content
                     | We are here to help you with any questions you may have. Feel free to contact us and we will get back to you as soon as possible.
                     | We are here to help you with any questions you may have. Feel free to contact us and we will get back to you as soon as possible.
                 .box-3
-                  img(src="images/shop(2).jpg", alt="image")
+                  img.img_wrap(src="images/shop(2).jpg", alt="image")
                 .box-4
-                  img(src="map/st_map.png", alt="image")
+                  img.img_wrap(src="map/st_map.png", alt="image")
             .container_right
               .imgText.rcol-2
                 .box-5
-                  img(src="images/shop3.jpg", alt="image")
+                  img.img_wrap(src="images/shop3.jpg", alt="image")
                 .box-6
-                  video(controls)
-                    source(src="videos/tanova.mp4", type="video/mp4",  onClick='this.play(autoplay=true, muted=true, loop=true')
+                  video.img_wrap(src="videos/tanova.mp4", type="video/mp4", muted, loop)
                     | Your browser does not support the video tag.
                 .box-7
                   p 
@@ -43,4 +42,3 @@ block content
                     | We are here to help you with any questions you may have. Feel free to contact us and we will get back to you as soon as possible.
                     | We are here to help you with any questions you may have. Feel free to contact us and we will get back to you as soon as possible.
                     | We are here to help you with any questions you may have. Feel free to contact us and we will get back to you as soon as possible.
-
