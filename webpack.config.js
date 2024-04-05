@@ -90,7 +90,7 @@ module.exports = {
         ],
       },
       {
-        test: /\ (png|jpe?g|gif|svg|woff|woff2|fnt|webp|mp4|webm|ogg|mp3|wav|flac|aac)$/i,
+        test: /\ (png|jpe?g|gif|svg|woff?2|ttf|fnt|webp|mp4|webm|ogg|mp3|wav|flac|aac)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'videos/[name].[hash].[ext]',

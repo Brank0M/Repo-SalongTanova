@@ -1,13 +1,12 @@
-// body {
-//     font-family: Arial, sans-serif;
-//     margin: 0;
-//     padding: 0;
-// }
+body {
+  margin: 0;
+  padding: 0;
+}
 
 .navbar {
-  background-color: #ffffff;
-  color: #000000;
   display: flex;
+  background-color: $color-spring-wood;
+  color: $color-woodsmoke;
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 5rem 1.5rem 1.5rem;
@@ -16,8 +15,14 @@
 }
 
 .logo img {
-  height: 50px;
+  height: 3rem; //replaced 50px
   width: auto;
+  padding-top: 0.5rem; // added
+
+  @include media('<phone') {
+    // added
+    height: 8rem;
+  }
 }
 
 .nav-links {
@@ -31,10 +36,10 @@
 }
 
 .nav-links ul {
+  display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  display: flex;
 }
 
 .nav-links li {
@@ -53,7 +58,8 @@
 
 .nav-links li a {
   text-decoration: none;
-  font-size: 20px;
+  font-size: 1rem;
+  font-weight: 300;
   color: inherit;
   position: relative;
   transition: color 0.3s ease;
@@ -66,7 +72,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background-color: #000000;
+  background-color: $color-alizarin-crimson;
   transition: width 0.3s ease;
 }
 
@@ -75,15 +81,14 @@
 }
 
 .burger-menu {
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: $color-spring-wood;
   border: none;
 }
 
 .menu-icon {
-  background-color: #fc0000;
+  background-color: $color-alizarin-crimson;
   height: 1px;
   width: 25px;
   margin: 3px 0;
@@ -131,7 +136,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: $color-spring-wood;
     opacity: 0.8;
     padding-top: 80px;
     z-index: 999;
@@ -143,11 +148,11 @@
   }
 
   .nav-links ul {
+    display: flex;
+    flex-direction: column;
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
     align-items: center;
   }
 
@@ -156,7 +161,7 @@
     opacity: 0;
     transform: translateY(-20px);
     animation: navItemFade 0.5s ease forwards;
-    font-size: 18px;
+    // font-size: 18px;
   }
 
   .nav-links.nav-active li {
@@ -168,6 +173,7 @@
     text-decoration: none;
     color: inherit;
     position: relative;
+    font-size: 3rem; // added replaced 18px
     transition: color 0.3s ease;
   }
 
@@ -178,7 +184,7 @@
     left: 0;
     width: 0;
     height: 1px;
-    background-color: #000000;
+    background-color: $color-alizarin-crimson;
     transition: width 0.3s ease;
   }
 
@@ -187,16 +193,15 @@
   }
 
   .burger-menu {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-column;
     cursor: pointer;
-    background-color: #ffffff;
+    background-color: $color-spring-wood;
     border: none;
     z-index: 1000;
   }
 
   .burger-menu .menu-icon {
-    background-color: #fc0000;
+    background-color: $color-alizarin-crimson;
     height: 1px;
     width: 25px;
     margin: 3px 0;

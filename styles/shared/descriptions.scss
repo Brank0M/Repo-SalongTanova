@@ -1,25 +1,37 @@
-%description-12 {
-    font-size: 1.2rem;
-
-    @include media('<phone') {
-        font-size: 3rem;
-    }
+%description-10 {
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
-%description-14 {
-    font-size: 1.4rem;
-
-    @include media('<phone') {
-        font-size: 3rem;
-    }
+%description-15 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  line-height: 1.5;
 }
 
-%description-16 {
-    font-size: 1.6rem;
-    font-weight: 300;
-    line-height: 1.5;
+// %description-12 {
+//     font-size: 1.2rem;
 
-    @include media('<phone') {
-        font-size: 2.8rem;
-    }
-}
+//     @include media('<phone') {
+//         font-size: 3rem;
+//     }
+// }
+
+// %description-14 {
+//     font-size: 1.4rem;
+
+//     @include media('<phone') {
+//         font-size: 3rem;
+//     }
+// }
+
+// %description-16 {
+//     font-size: 1.6rem;
+//     font-weight: 300;
+//     line-height: 1.5;
+
+//     @include media('<phone') {
+//         font-size: 2.8rem;
+//     }
+// }

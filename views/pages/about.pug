@@ -6,7 +6,7 @@ block variables
 block content
   section.about
     .about_title_wrapper(style="height: 60vh;")
-      img.about_title_image(src="images/portal2.png", style="width: 100%; object-fit: cover;")
+      img.about_title_image(src="images/portal2red.png", style="width: 100%; object-fit: cover;")
       .about_title_text
         h1.title_1 Vem vi är
         h2.title_2 Stylister Kreatörer Designers
@@ -23,8 +23,8 @@ block content
 
     .about_content
       - var images = []
-      - images.push({ src: "images/about2.png", name: "Tanja Jovanova", role: "Frisör/Grundare", alt: "About Us", text: " Med över ett decenniums erfarenhet inom frisöryrket har jag en passion för att skapa fantastiska och personliga upplevelser för mina kunder. Mitt mål är att erbjuda högkvalitativa tjänster och skapa en frisörsalong där varje besök blir en minnesvärd upplevelse. Min resa inom frisörbranschen började för många år sedan med en brinnande passion för skönhet och kreativitet. Efter år av hårt arbete och dedikation har jag följt min dröm att öppna min egen salong, där jag kan förverkliga min vision av personlig service och skönhetstjänster av högsta kvalitet.", alignment: "right"})
-      - images.push({ src: "images/about1.png", name: "Sofia Dzudovic", role: "Frisör/Junior",alt: "About Us", text: "Mitt namn är Sofia och jag är 21 år gammal. Jag tog studenten från frisörprogrammet år 2022 och har sedan dess jobbat som frisör i ungefär ett år. Nu har jag äntligen hittat till Salong Tanova, en salong som matchar min passion för yrket och där jag verkligen känner att jag kan utvecklas. Jag inspireras dagligen av mina härliga kollegor och den positiva atmosfären på salongen. Jag ser fram emot att möta dig och ge dig en personlig och professionell hårvårdsupplevelse!", alignment: "left"})
+      - images.push({ src: "images/about2red.png", name: "Tanja Jovanova", role: "Frisör/Grundare", alt: "About Us", text: " Med över ett decenniums erfarenhet inom frisöryrket har jag en passion för att skapa fantastiska och personliga upplevelser för mina kunder. Mitt mål är att erbjuda högkvalitativa tjänster och skapa en frisörsalong där varje besök blir en minnesvärd upplevelse. Min resa inom frisörbranschen började för många år sedan med en brinnande passion för skönhet och kreativitet. Efter år av hårt arbete och dedikation har jag följt min dröm att öppna min egen salong, där jag kan förverkliga min vision av personlig service och skönhetstjänster av högsta kvalitet.", alignment: "right"})
+      - images.push({ src: "images/about1red.png", name: "Sofia Dzudovic", role: "Frisör/Junior",alt: "About Us", text: "Mitt namn är Sofia och jag är 21 år gammal. Jag tog studenten från frisörprogrammet år 2022 och har sedan dess jobbat som frisör i ungefär ett år. Nu har jag äntligen hittat till Salong Tanova, en salong som matchar min passion för yrket och där jag verkligen känner att jag kan utvecklas. Jag inspireras dagligen av mina härliga kollegor och den positiva atmosfären på salongen. Jag ser fram emot att möta dig och ge dig en personlig och professionell hårvårdsupplevelse!", alignment: "left"})
       - images.push({ src: "logo/keune.png", alt: "About Us", text: "Sedan 1922 har vi tillverkat hårprodukter för proffs. Men vi är så mycket mer än bara en leverantör. Alla salonger som jobbar med oss är en del av familjen Keune. Vi säger det inte bara för att vi är ett familjeföretag, utan för att det passar vår stil. Vi vill bara det bästa för dig när du sitter i en av våra stolar. Det är därför vi gör affärer med en personlig touch.", alignment: "right"})
 
       each item, index in images

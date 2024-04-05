@@ -2,7 +2,7 @@
   &_title_wrapper {
     position: relative;
     text-align: center;
-    color: #fff;
+    color: $color-spring-wood;
 
     .about_title_image {
       width: 100%;
@@ -34,6 +34,7 @@
     padding: 4rem 8rem;
     text-align: center;
     margin: 0 auto;
+    font-size: 2rem;
 
     @include media('<phone') {
       font-size: 2.5rem;
@@ -51,7 +52,7 @@
   }
 
   &_content {
-    @extend %cover;
+    @extend %flex-column;
     max-width: 80rem;
     margin: 0 auto;
   }
@@ -120,7 +121,7 @@
 
   .about_text_bottom {
     text-align: center;
-    border: 1px solid red;
+    border: 1px $color-alizarin-crimson solid;
     padding: 20px;
 
     @include media('<phone') {

@@ -62,8 +62,8 @@
     &-2,
     &-7 {
       p {
-        font-size: 1rem;
-        line-height: 1.5;
+        // @extend %title-10;
+        @extend %description-10;
         margin-bottom: 1rem;
         text-align: center;
 
