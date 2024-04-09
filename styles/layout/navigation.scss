@@ -3,7 +3,10 @@ body {
   padding: 0;
 }
 
-.navbar {
+.navigation {
+}
+
+.navigation_wrapper {
   display: flex;
   background-color: $color-spring-wood;
   color: $color-woodsmoke;
@@ -123,6 +126,12 @@ body {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+.navbar-hidden {
+  visibility: hidden; // Makes the element invisible
+  opacity: 0; // Fade out
+  transition: visibility 0s 0.3s, opacity 0.3s linear; // Smooth transition for fading out
 }
 
 /* Media query for tablets */

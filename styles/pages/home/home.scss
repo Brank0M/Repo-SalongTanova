@@ -1,18 +1,17 @@
 // .home {
 // }
+
 // Section 1
-
-//- 1. Reconfigure file in scss format
-//- 2. Keep same functionality
-//- 3. Simplify the code
-//- 4. Use SCSS features
-
 a,
 h3 {
   white-space: nowrap;
   text-transform: uppercase;
   text-decoration: none;
   color: $color-woodsmoke;
+}
+
+.container {
+  // max-height: 50vh;
 }
 
 .home_div {

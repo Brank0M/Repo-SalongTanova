@@ -1,3 +1,7 @@
+import each from 'lodash/each';
+import Navigation from 'components/Navigation';
+import Preloader from 'components/Preloader';
+
 import Home from 'pages/Home';
 import About from 'pages/About';
 import Contact from 'pages/Contact';
@@ -5,9 +9,31 @@ import Prices from 'pages/Prices';
 
 class App {
   constructor() {
+    this.createPreloader();
     this.createContent();
     this.createPages();
-    // this.addEventListeners();
+    this.createNavigation();
+
+    this.addLinkListeners();
+    this.addEventListeners();
+
+    this.update();
+  }
+
+  createNavigation() {
+    this.navigation = new Navigation({
+      element: document.querySelector('.navigation'),
+      elements: {
+        navLinks: document.querySelector('.nav-links'),
+        burgerMenu: document.querySelector('.burger-menu'),
+        navItems: document.querySelectorAll('.nav-links li'),
+      },
+    });
+  }
+
+  createPreloader() {
+    this.preloader = new Preloader();
+    this.preloader.once('completed', this.onPreloaded.bind(this));
   }
 
   createContent() {
@@ -27,40 +53,113 @@ class App {
     this.page.create();
   }
 
-  //   addEventListeners() {
-  //     window.addEventListener('popstate', this.onPopState.bind(this));
-  //   }
+  onPreloaded() {
+    // console.log('Preloaded'); // delete this line
 
-  //   onPopState() {
-  //     this.onChange({ url: window.location.pathname });
-  //   }
+    this.preloader.destroy();
 
-  //   onChange({ url, push = false }) {
-  //     const request = new XMLHttpRequest();
+    this.onResize();
 
-  //     request.open('GET', url, true);
-  //     request.onload = () => {
-  //       this.onContent({ push, request });
-  //     };
-  //     request.send();
-  //   }
+    this.page.show();
+  }
 
-  //   onContent({ push, request }) {
-  //     const parser = new DOMParser();
-  //     const htmlDocument = parser.parseFromString(request.response, 'text/html');
-  //     const content = htmlDocument.querySelector('.content');
+  async onChange(url) {
+    await this.page.hide();
 
-  //     this.content.replaceWith(content);
+    const request = await window.fetch(url);
 
-  //     this.content = content;
-  //     this.template = this.content.getAttribute('data-template');
+    if (request.status === 200) {
+      const html = await request.text();
+      const div = document.createElement('div');
 
-  //     if (push) {
-  //       window.history.pushState({}, '', url);
-  //     }
+      div.innerHTML = html;
 
-  //     this.createPages();
-  //   }
+      const divContent = div.querySelector('.content');
+
+      this.template = divContent.getAttribute('data-template');
+
+      this.content.setAttribute('data-template', this.template);
+      this.content.innerHTML = divContent.innerHTML;
+
+      this.page = this.pages[this.template];
+      this.page.create();
+
+      this.onResize();
+
+      this.page.show();
+
+      this.addLinkListeners();
+    } else {
+      console.error('Error trying to fetch the page.');
+    }
+  }
+
+  onResize() {
+    if (this.page && this.page.onResize) {
+      this.page.onResize();
+    }
+  }
+
+  update() {
+    if (this.page && this.page.update) {
+      this.page.update();
+    }
+    this.frame = window.requestAnimationFrame(this.update.bind(this));
+  }
+
+  addEventListeners() {
+    window.addEventListener('resize', this.onResize.bind(this));
+  }
+
+  addLinkListeners() {
+    const links = document.querySelectorAll('a');
+
+    each(links, (link) => {
+      link.onClick = (event) => {
+        event.preventDefault();
+        const { href } = link;
+
+        this.onChange(href);
+
+        // console.log(event);
+      };
+    });
+  }
 }
 
 new App();
+
+// addEventListeners() {
+//   window.addEventListener('popstate', this.onPopState.bind(this));
+// }
+
+// onPopState() {
+//   this.onChange({ url: window.location.pathname });
+// }
+
+// onChange({ url, push = false }) {
+//   const request = new XMLHttpRequest();
+
+//   request.open('GET', url, true);
+//   request.onload = () => {
+//     this.onContent({ push, request });
+//   };
+//   request.send();
+// }
+
+// onContent({ push, request }) {
+//   const parser = new DOMParser();
+//   const htmlDocument = parser.parseFromString(request.response, 'text/html');
+//   const content = htmlDocument.querySelector('.content');
+
+//   this.content.replaceWith(content);
+
+//   this.content = content;
+//   this.template = this.content.getAttribute('data-template');
+
+//   if (push) {
+//     window.history.pushState({}, '', url);
+//   }
+
+//   this.createPages();
+// }

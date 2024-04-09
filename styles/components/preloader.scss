@@ -1,22 +1,20 @@
 .preloader {
-  // @extend %center;
-  // @extend %cover;
-
   align-items: center;
   justify-content: center;
-  // display: flex;
-  display: none;
+  display: flex;
+  // display: none;
   background: $color-woodsmoke;
   color: $color-quarter-spanish-white;
   text-align: center;
   z-index: z('preloader');
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 .preloader_text {
   font-size: 2rem;
   max-width: 66rem;
-  // font-family: $font-suisse-bp;
-  // font-weight: 100;
   line-height: 2.5rem;
 
   span {
@@ -25,27 +23,26 @@
   }
 
   span span {
-    // @extend %title-53;
+    @extend %title-50;
+    overflow: hidden;
   }
 }
 
 .preloader_number {
-  // @extend %description-14;
   position: absolute;
-  // overflow: hidden;
+  overflow: hidden;
   bottom: 10rem;
   left: 50%;
-  font-size: 2rem; // delete
+  font-size: 1.5rem; // delete
   transform: translateX(-50%);
   font-family: Calibri;
   font-weight: 100;
 
-  // @include media('<phone') {
-  //     font-size: 2.4rem;
-  // }
+  @include media('<phone') {
+    font-size: 2.4rem;
+  }
 }
 
-// .preloader_number_text {
-//     display: inline-block;
-
-// }
+.preloader_number_text {
+  display: inline-block;
+}

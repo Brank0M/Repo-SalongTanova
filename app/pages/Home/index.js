@@ -1,30 +1,45 @@
+import { each } from 'lodash';
 import Page from 'classes/Page';
 
 export default class Home extends Page {
   constructor() {
-    super({ id: 'home' });
-    this.init();
+    super({
+      id: 'home',
+      element: '.home',
+      elements: {
+        wrapper: '.container',
+        text: '.text',
+        text1: '.text1',
+        slider: '.home_slider_box',
+        keuneSlider: '.home_keune_slider_box',
+        switch: '.home_switch_btn',
+        imgWoman: ".home_switch_img_box img[src='../images/img2.jpg']",
+        imgMan: ".home_switch_img_box img[src='../images/img4.jpg']",
+      },
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      this.initVideo();
+    });
   }
 
-  init() {
-    document.addEventListener('DOMContentLoaded', () => {
-      this.adjustVideoSize();
-      this.initTextAnimation('.text1');
-      this.initTextAnimation('.text');
-      this.initSlider(
-        '.home_slider_box',
-        '.home_slide_btn a.button img.btn_arrow'
-      );
-      this.initKeuneSlider(
-        '.home_keune_slider_box',
-        '.home_keune_slider_box img.slide'
-      );
-      this.initImageSwitch(
-        '.home_switch_btn',
-        ".home_switch_img_box img[src='../images/img2.jpg']",
-        ".home_switch_img_box img[src='../images/img4.jpg']"
-      );
-    });
+  initVideo() {
+    this.adjustVideoSize();
+    this.initTextAnimation('.text1');
+    this.initTextAnimation('.text');
+    this.initSlider(
+      '.home_slider_box',
+      '.home_slide_btn a.button img.btn_arrow'
+    );
+    this.initKeuneSlider(
+      '.home_keune_slider_box',
+      '.home_keune_slider_box img.slide'
+    );
+    this.initImageSwitch(
+      '.home_switch_btn',
+      ".home_switch_img_box img[src='../images/img2.jpg']",
+      ".home_switch_img_box img[src='../images/img4.jpg']"
+    );
 
     window.addEventListener('resize', this.adjustVideoSize);
   }
@@ -37,6 +52,10 @@ export default class Home extends Page {
     }
 
     const video = videoContainer.querySelector('video');
+
+    if (!video) {
+      return;
+    }
     const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
 
     videoContainer.style.height = `${viewportHeight}px`;
@@ -139,3 +158,56 @@ export default class Home extends Page {
     });
   };
 }
+
+// export default class Home extends Page {
+//   constructor() {
+//     super({
+//       id: 'home',
+//       element: '.home',
+//       elements: {
+//         wrapper: '.container',
+//         text: '.text',
+//         text1: '.text1',
+//         slider: '.home_slider_box',
+//         keuneSlider: '.home_keune_slider_box',
+//         switch: '.home_switch_btn',
+//         imgWoman: ".home_switch_img_box img[src='../images/img2.jpg']",
+//         imgMan: ".home_switch_img_box img[src='../images/img4.jpg']",
+//       },
+//     });
+//     this.initVideo();
+//   }
+
+//   // addEventListener() {
+//   //   window.addEventListener('resize', this.adjustVideoSize);
+//   // }
+
+//   create() {
+//     super.create();
+//     this.elements = {
+//       video: document.querySelector('.home_video'),
+//     };
+//   }
+
+//   initVideo() {
+//     document.addEventListener('DOMContentLoaded', () => {
+//       this.adjustVideoSize();
+//       this.initTextAnimation('.text1');
+//       this.initTextAnimation('.text');
+//       this.initSlider(
+//         '.home_slider_box',
+//         '.home_slide_btn a.button img.btn_arrow'
+//       );
+//       this.initKeuneSlider(
+//         '.home_keune_slider_box',
+//         '.home_keune_slider_box img.slide'
+//       );
+//       this.initImageSwitch(
+//         '.home_switch_btn',
+//         ".home_switch_img_box img[src='../images/img2.jpg']",
+//         ".home_switch_img_box img[src='../images/img4.jpg']"
+//       );
+//     });
+
+//     window.addEventListener('resize', this.adjustVideoSize);
+//   }

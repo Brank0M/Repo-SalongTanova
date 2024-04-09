@@ -1,4 +1,4 @@
-.container {
+.container_fixed {
 }
 
 .dalle {
@@ -14,6 +14,12 @@
 
 .prices {
   @extend %flex-center;
+  // @extend %cover;
+}
+
+.container {
+  // overflow: hidden;
+  // max-height: 50vh;
 }
 
 .prices_content {

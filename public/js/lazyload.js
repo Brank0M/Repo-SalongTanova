@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",(()=>{document.querySelectorAll("img[data-src]").forEach((t=>{t.setAttribute("src",t.getAttribute("data-src")),t.removeAttribute("data-src")}));document.querySelectorAll("video[data-src]").forEach((t=>{t.setAttribute("src",t.getAttribute("data-src")),t.removeAttribute("data-src")}))}));

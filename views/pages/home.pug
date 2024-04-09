@@ -5,7 +5,8 @@ block variables
 
 block content
 
-    .home
+  .home
+    .container
       .home_div
         .home_section_1
           .home_section_work 
@@ -13,64 +14,64 @@ block content
               a.button(href='https://www.instagram.com/salongtanova/?igsh=MTJ1cjRpZWo0dmUzcw%3D%3D')
                 h3.text1 Instagram
           .home_video
-            video(src='../videos/video32.mp4', type='video/mp4', onClick='this.play(autoplay=true, muted=true, loop=true)')
+            video(src='../videos/video32.mp4' type='video/mp4' onClick='this.play(autoplay=true, muted=true, loop=true)')
             .home_btn_call 
               a.button(href='https://www.bokadirekt.se/places/salong-tanova-56873')
-                h3 Boka nu
+                h3(data-animation="title") Boka nu
 
         .home_section_2
           .home_section_content 
             .home_slide_title
-              .home_title_box 
-                h3 Achieve your dream look 
+              .home_title_box
+                h3(data-animation="title") Achieve your dream look 
             .home_slide_btn
               a.button
-                img.btn_arrow(src="../logo/Combined Shape.svg", alt="arrow")
+                img.btn_arrow(src="../logo/Combined Shape.svg" alt="arrow")
             .home_slide_text
               .home_text_box 
-                h3 Image it and we will make it happen
+                h3(data-animation="title") Image it and we will make it happen
           .home_slide_slider#canvas
             each image in ['../images/img1.jpg', '../images/img3.jpg', '../images/img8.jpg']
               .home_slider_box.fade
-                img(src=image, alt='slider')
+                img(src=image alt='slider')
 
         .home_section_3
           .home_section_switch
             .home_switch_img
               .home_switch_img_box
-                img.active(src='../images/img2.jpg', alt='woman')
-                img(src='../images/img4.jpg', alt="man")
+                img.active(src='../images/img2.jpg' alt='woman')
+                img(src='../images/img4.jpg' alt="man")
               .home_switch_btn
-                a.button.woman(active) Woman
+                a.button.woman(active)(data-animation="title") Woman
                 a.button.man
             .home_switch_title
               .home_switch_title_box
-                img(src="../logo/logo_small.png", alt="Salong Tanova")
+                img(src="../logo/logo_small.png" alt="Salong Tanova")
 
         .home_section_4
           .home_section_keune 
             .home_keune_slider
               .home_keune_slider_box
-                img.slide(src='../images/reklam1.png', alt='keune')
-                img.slide(src='../images/reklam2.png', alt='keune')
-                img.slide(src='../images/reklam3.png', alt='keune')
+                img.slide(src='../images/reklam1.png' alt='keune')
+                img.slide(src='../images/reklam2.png' alt='keune')
+                img.slide(src='../images/reklam3.png' alt='keune')
             .home_keune_text
               .home_keune_text_box
-                p 
+                p(data-animation="paragraph")
                   | Keune är en av världens ledande professionella hårvårdsföretag. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut praesentium quidem iusto numquam veniam fugit nesciunt, quibusdam cum eum quo adipisci quos corrupti dicta consequatur velit eius culpa deserunt ratione?    
             .home_keune_img
               .home_keune_img_box
-                img.first(src='../images/keune(1).jpg', alt='keune')
-                img.second(src="../images/keune(2).jpg", alt="keune")
-                img.third(src="../images/keune(3).jpg", alt="keune")
+                img.first(src="../images/keune(1).jpg" alt="keune")
+                img.second(src="../images/keune(2).jpg" alt="keune")
+                img.third(src="../images/keune(3).jpg" alt="keune")
             
         .home_section_5
           .home_section_map
             .home_map_text
               .home_map_text_box
-                h2 Hitta hit
-                h4 Malmo 
-                p 
+                h2(data-animation="title") Hitta hit
+                h4(data-animation="title") Malmo 
+                p(data-animation="paragraph") 
                   | Vi finns på Kungsgatan 1 i Stockholm. Välkommen in till oss Lorem, ipsum dolor sit amet 
                   | consectetur adipisicing elit. 
                   | Accusamus reiciendis minima aut praesentium dolores atque nulla, consequatur itaque ex 
@@ -80,10 +81,10 @@ block content
                   | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum ea eum tempora tempore
             .home_map_img
               .home_map_img_box
-                img(src='../map/st_map.png', alt='map')
+                img(src='../map/st_map.png' alt='map')
               .home_map_logo
                 .home_map_logo_box
-                  img(src="../logo/st_logo.png", alt="Salong Tanova")
+                  img(src="../logo/st_logo.png" alt="Salong Tanova")
 
         .home_section_6
           .home_section_about
@@ -93,9 +94,9 @@ block content
                   h3.text om oss
             .home_about_img 
               .home_about_img_box_1
-                img(src='../images/shop(2).jpg', alt='slider')
+                img(src='../images/shop(2).jpg' alt='slider')
               .home_about_img_box_2
-                img(src='../images/shop(1).jpg', alt='slider')
+                img(src='../images/shop(1).jpg' alt='slider')
             .home_about_btn_2 
               .home_about_btn_box_2 
                 a.button(href='https://www.bokadirekt.se/places/salong-tanova-56873')

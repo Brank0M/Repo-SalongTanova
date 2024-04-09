@@ -1,4 +1,10 @@
 .about {
+  .container {
+    // max-height: 100vh;
+    // overflow: hidden;
+    z-index: 10; // delete
+  }
+
   &_title_wrapper {
     position: relative;
     text-align: center;
