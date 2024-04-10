@@ -1,42 +1,39 @@
 import Component from '../classes/Component';
+import { gsap } from 'gsap';
 
 export default class Navigation extends Component {
   constructor() {
     super({
-      element: '.navigation', // Ensure this targets your main navigation container
+      element: '.navigation',
       elements: {
         items: document.querySelectorAll('.nav-links li'),
-        links: document.querySelector('.nav-links'),
+        links: document.querySelectorAll('.menu-link'),
+        burger: document.querySelector('#burger'),
       },
     });
 
-    this.navMenu();
+    this.tl = gsap.timeline({ reversed: false });
+    this.initializeTimeline();
+    this.elements.burger.addEventListener('click', this.toggleMenu.bind(this));
   }
 
-  navMenu() {
-    const burgerMenu = document.querySelector('.burger-menu');
+  initializeTimeline() {
+    this.tl
+      .to('.menu-link', {
+        yPercent: 100,
+        duration: 0.5,
+      })
+      .to('.navigation', {
+        width: 0,
+        immediateRender: false,
+      })
+      .progress(1);
 
-    burgerMenu.addEventListener('click', () => {
-      // Toggle navigation links visibility
-      this.elements.links.classList.toggle('nav-active');
+    gsap.set('.navigation', { opacity: 1 });
+  }
 
-      // Toggle burger menu animation
-      burgerMenu.classList.toggle('cross');
-
-      // Animation for each nav item
-      this.elements.items.forEach((item, index) => {
-        item.style.animation = item.style.animation
-          ? ''
-          : `navItemFade 0.5s ease forwards ${index / 5 + 0.2}s`;
-      });
-      // Close navigation if link is not clicked in 2 seconds after opening
-      setTimeout(() => {
-        this.elements.links.classList.remove('nav-active');
-        burgerMenu.classList.remove('cross');
-        this.elements.items.forEach((item) => {
-          item.style.animation = '';
-        });
-      }, 5000);
-    });
+  toggleMenu() {
+    this.elements.burger.classList.toggle('cross');
+    this.tl.reversed(!this.tl.reversed());
   }
 }

@@ -24,9 +24,8 @@ class App {
     this.navigation = new Navigation({
       element: document.querySelector('.navigation'),
       elements: {
-        navLinks: document.querySelector('.nav-links'),
-        burgerMenu: document.querySelector('.burger-menu'),
-        navItems: document.querySelectorAll('.nav-links li'),
+        navLinks: document.querySelectorAll('.nav-links li'),
+        burgerMenu: document.querySelector('#burger'),
       },
     });
   }
