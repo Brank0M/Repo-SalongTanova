@@ -8,6 +8,8 @@ block content
   .home
     .container
       .home_div
+        .logo
+          img(src="../logo/logo_small.png", alt="Logo")
         .home_section_1
           .home_section_work 
             .home_btn_work 
@@ -42,7 +44,7 @@ block content
                 img.active(src='../images/img2.jpg' alt='woman')
                 img(src='../images/img4.jpg' alt="man")
               .home_switch_btn
-                a.button.woman(active)(data-animation="title") Woman
+                a.button.woman(active data-animation="title") Woman
                 a.button.man
             .home_switch_title
               .home_switch_title_box
@@ -101,4 +103,5 @@ block content
               .home_about_btn_box_2 
                 a.button(href='https://www.bokadirekt.se/places/salong-tanova-56873')
                   h3 Book
+                  
         

@@ -123,7 +123,7 @@ export default class Page {
   onResize() {
     if (this.elements.wrapper) {
       this.scroll.limit =
-        this.elements.wrapper.clientHeight - window.innerHeight + 190;
+        this.elements.wrapper.clientHeight - window.innerHeight + 277;
     }
 
     each(this.animations, (animation) => animation.onResize());

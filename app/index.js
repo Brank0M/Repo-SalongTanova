@@ -1,6 +1,7 @@
 import each from 'lodash/each';
 import Navigation from 'components/Navigation';
 import Preloader from 'components/Preloader';
+import Footer from 'components/Footer';
 
 import Home from 'pages/Home';
 import About from 'pages/About';
@@ -13,6 +14,7 @@ class App {
     this.createContent();
     this.createPages();
     this.createNavigation();
+    // this.createFooter();
 
     this.addLinkListeners();
     this.addEventListeners();
@@ -29,6 +31,12 @@ class App {
       },
     });
   }
+
+  // createFooter() {
+  //   this.footer = new Footer({
+  //     element: document.querySelector('.footer'),
+  //   });
+  // }
 
   createPreloader() {
     this.preloader = new Preloader();
