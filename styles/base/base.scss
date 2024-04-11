@@ -6,8 +6,8 @@
 }
 
 html {
-  //   @extend %flex-column;
   background: $color-spring-wood;
+  color: $color-woodsmoke;
   font-size: calc(100vw / 1920px * 20px);
   line-height: 1;
   position: fixed;
@@ -74,7 +74,7 @@ p {
 // vertical-align: middle;
 
 // &.loaded {
-//     opacity: 1;
+//   opacity: 1;
 // }
 // }
 

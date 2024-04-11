@@ -7,6 +7,8 @@ import NormalizeWheel from 'normalize-wheel';
 import Title from '../animations/Title';
 import Paragraph from '../animations/Paragraph';
 
+import { ColorsManager } from './Colors';
+
 export default class Page {
   constructor({ element, elements, id }) {
     this.selector = element;
@@ -83,6 +85,10 @@ export default class Page {
 
   show() {
     return new Promise((resolve) => {
+      ColorsManager.change({
+        backgroundColor: this.element.getAttribute('data-background'),
+        color: this.element.getAttribute('data-color'),
+      });
       this.animationIn = gsap.timeline();
 
       this.animationIn.from(
