@@ -1,7 +1,7 @@
 import each from 'lodash/each';
 import Navigation from 'components/Navigation';
 import Preloader from 'components/Preloader';
-import Footer from 'components/Footer';
+// import Footer from 'components/Footer';
 
 import Home from 'pages/Home';
 import About from 'pages/About';

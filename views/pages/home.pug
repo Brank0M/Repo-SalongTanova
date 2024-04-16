@@ -9,14 +9,14 @@ block content
     .container
       .home_div
         .logo
-          img(src="../logo/logo_small.png", alt="Logo")
+          img(data-src="../logo/logo_small.png", alt="Logo")
         .home_section_1
           .home_section_work 
             .home_btn_work 
               a.button(href='https://www.instagram.com/salongtanova/?igsh=MTJ1cjRpZWo0dmUzcw%3D%3D')
                 h3.text1 Instagram
           .home_video
-            video(src='../videos/video32.mp4' type='video/mp4' onClick='this.play(autoplay=true, muted=true, loop=true)')
+            video(data-src='../videos/video32.mp4' type='video/mp4' onClick='this.play(autoplay=true, muted=true, loop=true)')
             .home_btn_call 
               a.button(href='https://www.bokadirekt.se/places/salong-tanova-56873')
                 h3(data-animation="title") Boka nu
@@ -28,44 +28,44 @@ block content
                 h3(data-animation="title") Achieve your dream look 
             .home_slide_btn
               a.button
-                img.btn_arrow(src="../logo/Combined Shape.svg" alt="arrow")
+                img.btn_arrow(data-src="../logo/Combined Shape.svg" alt="arrow")
             .home_slide_text
               .home_text_box 
                 h3(data-animation="title") Image it and we will make it happen
           .home_slide_slider#canvas
             each image in ['../images/img1.jpg', '../images/img3.jpg', '../images/img8.jpg']
               .home_slider_box.fade
-                img(src=image alt='slider')
+                img(data-src=image alt='slider')
 
         .home_section_3
           .home_section_switch
             .home_switch_img
               .home_switch_img_box
-                img.active(src='../images/img2.jpg' alt='woman')
-                img(src='../images/img4.jpg' alt="man")
+                img.active(data-src='../images/img2.jpg' alt='woman')
+                img(data-src='../images/img4.jpg' alt="man")
               .home_switch_btn
                 a.button.woman(active data-animation="title") Woman
                 a.button.man
             .home_switch_title
               .home_switch_title_box
-                img(src="../logo/logo_small.png" alt="Salong Tanova")
+                img(data-src="../logo/logo_small.png" alt="Salong Tanova")
 
         .home_section_4
           .home_section_keune 
             .home_keune_slider
               .home_keune_slider_box
-                img.slide(src='../images/reklam1.png' alt='keune')
-                img.slide(src='../images/reklam2.png' alt='keune')
-                img.slide(src='../images/reklam3.png' alt='keune')
+                img.slide(data-src='../images/reklam1.png' alt='keune')
+                img.slide(data-src='../images/reklam2.png' alt='keune')
+                img.slide(data-src='../images/reklam3.png' alt='keune')
             .home_keune_text
               .home_keune_text_box
                 p(data-animation="paragraph")
                   | Keune är en av världens ledande professionella hårvårdsföretag. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aut praesentium quidem iusto numquam veniam fugit nesciunt, quibusdam cum eum quo adipisci quos corrupti dicta consequatur velit eius culpa deserunt ratione?    
             .home_keune_img
               .home_keune_img_box
-                img.first(src="../images/keune(1).jpg" alt="keune")
-                img.second(src="../images/keune(2).jpg" alt="keune")
-                img.third(src="../images/keune(3).jpg" alt="keune")
+                img.first(data-src="../images/keune(1).jpg" alt="keune")
+                img.second(data-src="../images/keune(2).jpg" alt="keune")
+                img.third(data-src="../images/keune(3).jpg" alt="keune")
             
         .home_section_5
           .home_section_map
@@ -83,10 +83,10 @@ block content
                   | Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum ea eum tempora tempore
             .home_map_img
               .home_map_img_box
-                img(src='../map/st_map.png' alt='map')
+                img(data-src='../map/st_map.png' alt='map')
               .home_map_logo
                 .home_map_logo_box
-                  img(src="../logo/st_logo.png" alt="Salong Tanova")
+                  img(data-src="../logo/st_logo.png" alt="Salong Tanova")
 
         .home_section_6
           .home_section_about
@@ -96,12 +96,33 @@ block content
                   h3.text om oss
             .home_about_img 
               .home_about_img_box_1
-                img(src='../images/shop(2).jpg' alt='slider')
+                img(data-src='../images/shop(2).jpg' alt='slider')
               .home_about_img_box_2
-                img(src='../images/shop(1).jpg' alt='slider')
+                img(data-src='../images/shop(1).jpg' alt='slider')
             .home_about_btn_2 
               .home_about_btn_box_2 
                 a.button(href='https://www.bokadirekt.se/places/salong-tanova-56873')
                   h3 Book
-                  
+        .footer 
+          .footer_box
+              .footer_link
+                  a(class='button' href='https://www.instagram.com/salongtanova?igsh=MTJ1cjRpZWo0dmUzcw==')
+                      h3 Följ oss
+                      p Instagram
+              .footer_link
+                  a(class='button' href='/about')
+                      h3 Om oss
+                      p about us
+              .footer_link
+                  a(class='button' href='https://www.google.com/maps/place/Regementsgatan+58,+217+51+Malmö/@55.5985142,12.9819025,19.75z/data=!4m6!3m5!1s0x4653a6ac7c9efa69:0x3ddb2543336e82b9!8m2!3d55.5984902!4d12.9819711!16s%2Fg%2F11c28vqjc1?entry=ttu')
+                      h3 Hitta oss
+                      p Our location 
+              .footer_link
+                  a(class='button' href='tel:040420045') 
+                      h3 Kontakt
+                      p Tel: 040420045
+          .footer_ma
+              p &copy; 2024 Web development & design by STUDIO B
+
+
         

@@ -7,7 +7,7 @@ block content
   section.about(data-background="#fffafa" data-color="#0d0d0d")
     .container
       .about_title_wrapper(style="height: 60vh;")
-        img.about_title_image(src="images/portal2red.png", style="width: 100%; object-fit: cover;")
+        img.about_title_image(data-src="images/portal2red.png", style="width: 100%; object-fit: cover;")
         .about_title_text
           h1.title_1 Vem vi är
           h2.title_2 Stylister Kreatörer Designers
@@ -31,7 +31,7 @@ block content
         each item, index in images
           .about_content_item(class=item.alignment === 'left' ? 'about_content--left' : 'about_content--right')
             if item.alignment === 'left'
-              img(src=item.src alt=item.alt)
+              img(data-src=item.src alt=item.alt)
               .about_text
                 h1.text_h1(data-animation="title")= item.name
                 role.text_role(data-animation="title")= item.role
@@ -41,10 +41,30 @@ block content
                 h1.text_h1(data-animation="title")= item.name
                 role.text_role(data-animation="title")= item.role
                 p.text_p(data-animation="paragraph")= item.text
-              img.about_img(src=item.src alt=item.alt)
+              img.about_img(data-src=item.src alt=item.alt)
 
       .about_text_bottom
         p
           | Välkommen till Salong Tanova! 
           hr
           | Tanja Jovanova, Grundare
+      .footer 
+        .footer_box
+            .footer_link
+                a(class='button' href='https://www.instagram.com/salongtanova?igsh=MTJ1cjRpZWo0dmUzcw==')
+                    h3 Följ oss
+                    p Instagram
+            .footer_link
+                a(class='button' href='/about')
+                    h3 Om oss
+                    p about us
+            .footer_link
+                a(class='button' href='https://www.google.com/maps/place/Regementsgatan+58,+217+51+Malmö/@55.5985142,12.9819025,19.75z/data=!4m6!3m5!1s0x4653a6ac7c9efa69:0x3ddb2543336e82b9!8m2!3d55.5984902!4d12.9819711!16s%2Fg%2F11c28vqjc1?entry=ttu')
+                    h3 Hitta oss
+                    p Our location 
+            .footer_link
+                a(class='button' href='tel:040420045') 
+                    h3 Kontakt
+                    p Tel: 040420045
+        .footer_ma
+            p &copy; 2024 Web development & design by STUDIO B

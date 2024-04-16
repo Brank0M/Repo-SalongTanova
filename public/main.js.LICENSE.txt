@@ -32,9 +32,13 @@
 
 /*! ../utils/log.js */
 
+/*! ./AsyncLoad */
+
 /*! ./CSSPlugin.js */
 
 /*! ./Colors */
+
+/*! ./Component */
 
 /*! ./ExecutionEnvironment */
 
@@ -352,8 +356,6 @@
 
 /*! classes/Page */
 
-/*! components/Footer */
-
 /*! components/Navigation */
 
 /*! components/Preloader */
@@ -427,11 +429,11 @@
   \**********************************/
 
 /*!**********************************!*\
-  !*** ./app/classes/Component.js ***!
+  !*** ./app/classes/AsyncLoad.js ***!
   \**********************************/
 
 /*!**********************************!*\
-  !*** ./app/components/Footer.js ***!
+  !*** ./app/classes/Component.js ***!
   \**********************************/
 
 /*!**********************************!*\

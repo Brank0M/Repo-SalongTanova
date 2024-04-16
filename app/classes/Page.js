@@ -6,6 +6,7 @@ import NormalizeWheel from 'normalize-wheel';
 
 import Title from '../animations/Title';
 import Paragraph from '../animations/Paragraph';
+import AsyncLoad from './AsyncLoad';
 
 import { ColorsManager } from './Colors';
 
@@ -17,6 +18,8 @@ export default class Page {
 
       animationTitles: '[data-animation="title"]',
       animationParagraphs: '[data-animation="paragraph"]',
+
+      preloaders: '[data-src]',
     };
     this.id = id;
     this.transformPrefix = Prefix('transform');
@@ -56,6 +59,7 @@ export default class Page {
     });
 
     this.createAnimations();
+    this.createPreloader();
   }
 
   createAnimations() {
@@ -81,6 +85,14 @@ export default class Page {
     );
 
     this.animations.push(...this.animationParagraphs);
+  }
+
+  createPreloader() {
+    this.preloaders = map(this.elements.preloaders, (element) => {
+      return new AsyncLoad({
+        element,
+      });
+    });
   }
 
   show() {

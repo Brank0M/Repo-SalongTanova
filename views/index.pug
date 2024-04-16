@@ -50,10 +50,14 @@ html(class=isDesktop ? "desktop" : isTablet ? "tablet" : isPhone ? "phone" : "" 
         .content#content(data-template=template)
         block content
 
-        include ./partials/footer
+        //- include ./partials/footer
 
         block scripts
-        
+
+        //- script#preloadImagesData(type='application/json') !{JSON.stringify(imageAssets)}
+        //- script(src='js/preload-script.js')
+
+
         script(src="main.js")
         //- script(src="js/foot.js")
         //- script(src="js/lazyload.js")

@@ -1,4 +1,4 @@
-import { each } from 'lodash';
+import each from 'lodash/each';
 import Component from 'classes/Component';
 import { gsap } from 'gsap';
 import { split } from 'utils/text';
@@ -38,13 +38,6 @@ export default class Preloader extends Component {
     // }, 20000);
   }
 
-  createLoader() {
-    each(this.elements.images, (element) => {
-      element.onload = () => this.onAssetLoaded(element);
-      element.src = element.getAttribute('src');
-    });
-  }
-
   onAssetLoaded(image) {
     this.length += 1;
 
@@ -57,8 +50,17 @@ export default class Preloader extends Component {
     }
   }
 
+  createLoader() {
+    each(this.elements.images, (element) => {
+      element.onload = () => this.onAssetLoaded(element);
+      element.src = element.getAttribute('data-src');
+    });
+  }
+
   onLoaded() {
     return new Promise((resolve) => {
+      this.emit('completed');
+
       this.animateOut = gsap.timeline({
         delay: 2,
       });
@@ -96,13 +98,16 @@ export default class Preloader extends Component {
       );
 
       this.animateOut.call(() => {
-        this.emit('completed');
+        this.destroy();
+        resolve();
       });
     });
   }
 
   destroy() {
-    this.element.parentNode.removeChild(this.element);
+    if (this.element && this.element.parentNode) {
+      this.element.parentNode.removeChild(this.element);
+    }
   }
 }
 
