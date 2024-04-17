@@ -30,13 +30,34 @@ export default class Preloader extends Component {
 
     this.length = 0;
 
-    // console.log(this.element, this.elements);
+    // // console.log(this.element, this.elements);
 
     this.createLoader();
     // setTimeout(() => {
     //   this.emit('completed');
-    // }, 20000);
+    // }, 5000);
   }
+
+  createLoader() {
+    each(this.elements.images, (element) => {
+      element.onload = () => {
+        this.onAssetLoaded(element);
+      };
+      element.src = element.getAttribute('data-src');
+    });
+  }
+
+  // onAssetLoaded(image) {
+  //   this.loadedImages++;
+  //   const percent = Math.round(
+  //     (this.loadedImages / this.elements.images.length) * 100
+  //   );
+  //   this.elements.number.textContent = `${percent}%`;
+
+  //   if (this.loadedImages === this.elements.images.length) {
+  //     this.onLoaded();
+  //   }
+  // }
 
   onAssetLoaded(image) {
     this.length += 1;
@@ -44,23 +65,15 @@ export default class Preloader extends Component {
     const percent = this.length / this.elements.images.length;
 
     this.elements.numberText.innerHTML = `${Math.round(percent * 100)}%`;
+    console.log(percent);
 
     if (percent === 1) {
       this.onLoaded();
     }
   }
 
-  createLoader() {
-    each(this.elements.images, (element) => {
-      element.onload = () => this.onAssetLoaded(element);
-      element.src = element.getAttribute('data-src');
-    });
-  }
-
   onLoaded() {
     return new Promise((resolve) => {
-      this.emit('completed');
-
       this.animateOut = gsap.timeline({
         delay: 2,
       });
@@ -70,45 +83,91 @@ export default class Preloader extends Component {
         duration: 2,
         ease: 'expo.out',
         stagger: 0.1,
-        y: '100%',
+        y: '100',
       });
 
-      this.animateOut.to(
-        this.elements.numberText,
-        {
-          autoAlpha: 0,
-          duration: 2,
-          ease: 'expo.out',
-          stagger: 0.1,
-          y: '100%',
-        },
-        '-=1.5'
-      );
+      this.animateOut.to(this.elements.numberText, {
+        autoAlpha: 0,
+        duration: 2,
+        ease: 'expo.out',
+        stagger: 0.1,
+        y: '100',
+      });
 
       this.animateOut.to(
         this.element,
         {
-          // autoAlpha: 0,
-          duration: 2,
+          autoAlpha: 1,
+          duration: 1,
           ease: 'expo.out',
           scaleY: 0,
           transformOrigin: '100% 100%',
         },
-        '-=1.5'
+        '-=1.2'
       );
 
       this.animateOut.call(() => {
-        this.destroy();
-        resolve();
+        this.emit('completed');
       });
     });
   }
 
   destroy() {
-    if (this.element && this.element.parentNode) {
-      this.element.parentNode.removeChild(this.element);
-    }
+    this.element.parentNode.removeChild(this.element);
   }
+
+  //   onLoaded() {
+  //     return new Promise((resolve) => {
+  //       this.emit('completed');
+
+  //       this.animateOut = gsap.timeline({
+  //         delay: 2,
+  //       });
+
+  //       this.animateOut.to(this.elements.titleSpans, {
+  //         autoAlpha: 0,
+  //         duration: 2,
+  //         ease: 'expo.out',
+  //         stagger: 0.1,
+  //         y: '100%',
+  //       });
+
+  //       this.animateOut.to(
+  //         this.elements.numberText,
+  //         {
+  //           autoAlpha: 0,
+  //           duration: 2,
+  //           ease: 'expo.out',
+  //           stagger: 0.1,
+  //           y: '100%',
+  //         },
+  //         '-=1.5'
+  //       );
+
+  //       this.animateOut.to(
+  //         this.element,
+  //         {
+  //           // autoAlpha: 0,
+  //           duration: 2,
+  //           ease: 'expo.out',
+  //           scaleY: 0,
+  //           transformOrigin: '100% 100%',
+  //         },
+  //         '-=1.5'
+  //       );
+
+  //       this.animateOut.call(() => {
+  //         this.destroy();
+  //         resolve();
+  //       });
+  //     });
+  //   }
+
+  //   destroy() {
+  //     if (this.element && this.element.parentNode) {
+  //       this.element.parentNode.removeChild(this.element);
+  //     }
+  //   }
 }
 
 //   createLoader() {
@@ -121,7 +180,7 @@ export default class Preloader extends Component {
 //       };
 //       image.src = element.src; // Make sure to set the correct source
 //     });
-//   }
+// }
 
 //   onAssetLoaded(image) {
 //     this.loadedImages++;

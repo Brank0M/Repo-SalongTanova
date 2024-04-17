@@ -1,6 +1,6 @@
 import each from 'lodash/each';
-import Navigation from 'components/Navigation';
 import Preloader from 'components/Preloader';
+import Navigation from 'components/Navigation';
 // import Footer from 'components/Footer';
 
 import Home from 'pages/Home';
@@ -13,6 +13,7 @@ class App {
     this.createPreloader();
     this.createContent();
     this.createPages();
+
     this.createNavigation();
     // this.createFooter();
 
@@ -62,11 +63,10 @@ class App {
 
   onPreloaded() {
     // console.log('Preloaded'); // delete this line
-
+    // this.preloader.hide();
     this.preloader.destroy();
-
-    this.onResize();
-
+    console.log('Preloader destroyed');
+    // this.onResize();
     this.page.show();
   }
 
@@ -90,11 +90,9 @@ class App {
 
       this.page = this.pages[this.template];
       this.page.create();
-
-      this.onResize();
-
       this.page.show();
 
+      this.onResize();
       this.addLinkListeners();
     } else {
       console.error('Error trying to fetch the page.');
@@ -126,8 +124,8 @@ class App {
         event.preventDefault();
         const { href } = link;
 
-        this.onChange(href);
-
+        this.onChange({ url: href });
+        // this.onChange({ href });
         // console.log(event);
       };
     });

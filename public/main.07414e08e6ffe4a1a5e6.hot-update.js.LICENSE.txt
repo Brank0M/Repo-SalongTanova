@@ -1,0 +1,11 @@
+/*! classes/Component */
+
+/*! express */
+
+/*! lodash/each */
+
+/*! utils/text */
+
+/*!*************************************!*\
+  !*** ./app/components/Preloader.js ***!
+  \*************************************/

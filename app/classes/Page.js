@@ -108,10 +108,17 @@ export default class Page {
         {
           // you can change this to/from gsap.to to see the animation
           autoAlpha: 0,
+          // delay: 1, //test
+          // stagger: 0.5, // test
+          // scaleY: 0, //test
+          // transformOrigin: '100% 100%', //test
         },
+        // '-=1.5'
         {
           autoAlpha: 1,
+          onComplete: resolve,
         }
+        // '-=1.5'
       ); // you can change this to 1 to see the animation
       this.animationIn.call(() => {
         this.addEventlistener();
