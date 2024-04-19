@@ -147,7 +147,7 @@ export default class Home extends Page {
     }
 
     buttonSwitch.addEventListener('mouseover', (event) => {
-      const button = event.target.closest('a.button');
+      const button = event.target.closest('#btn');
 
       if (button) {
         const isWoman = button.textContent.trim() === 'Woman';

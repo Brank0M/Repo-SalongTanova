@@ -87,7 +87,6 @@ export default class Page {
     );
 
     //Images animation
-
     this.animationImages = map(this.elements.animationImages, (element) => {
       return new Images({
         element,

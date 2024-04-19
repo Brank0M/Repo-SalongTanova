@@ -1,4 +1,4 @@
-import GSAP from 'gsap';
+import { gsap } from 'gsap';
 import Animation from 'classes/Animation.js';
 import each from 'lodash/each';
 // import { calculate, split } from 'utils/text.js';
@@ -16,7 +16,7 @@ export default class Images extends Animation {
   }
 
   animateIn() {
-    this.timeLineIn = GSAP.timeline({
+    this.timeLineIn = gsap.timeline({
       delay: 0.5,
       duration: 0.5,
       ease: 'expo.out',
@@ -29,7 +29,9 @@ export default class Images extends Animation {
   }
 
   animateOut() {
-    GSAP.set(this.element, {
+    this.timeLineOut = gsap.timeline();
+
+    this.timeLineOut.to(this.element, {
       autoAlpha: 0,
     });
   }

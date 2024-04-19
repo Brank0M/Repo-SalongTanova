@@ -30,7 +30,13 @@ h3 {
   img {
     padding: 1rem;
     width: 20rem;
-    height: 4rem;
+    // height: 4rem;
+
+    @include media('<tablet') {
+      // src: url('../logo/logo_small.png');
+      padding: 1rem;
+      width: 40rem;
+    }
   }
 }
 
@@ -74,7 +80,7 @@ img {
   height: 100%;
   object-fit: cover;
 }
-
+// instagam button
 .home_btn_work {
   position: absolute;
   padding: 1rem 2rem;
