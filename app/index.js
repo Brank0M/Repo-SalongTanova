@@ -1,7 +1,9 @@
 import each from 'lodash/each';
-import Preloader from 'components/Preloader';
+
+// import Canvas from 'components/Canvas';
 import Navigation from 'components/Navigation';
-// import Footer from 'components/Footer';
+import Preloader from 'components/Preloader';
+import Images from 'animations/Images';
 
 import Home from 'pages/Home';
 import About from 'pages/About';
@@ -10,16 +12,18 @@ import Prices from 'pages/Prices';
 
 class App {
   constructor() {
-    this.createPreloader();
     this.createContent();
-    this.createPages();
+    this.createPreloader();
 
     this.createNavigation();
-    // this.createFooter();
+    // this.createCanvas();
+    this.createImages();
+    this.createPages();
 
-    this.addLinkListeners();
     this.addEventListeners();
+    this.addLinkListeners();
 
+    this.onResize();
     this.update();
   }
 
@@ -33,15 +37,31 @@ class App {
     });
   }
 
-  // createFooter() {
-  //   this.footer = new Footer({
-  //     element: document.querySelector('.footer'),
-  //   });
-  // }
-
   createPreloader() {
     this.preloader = new Preloader();
     this.preloader.once('completed', this.onPreloaded.bind(this));
+  }
+
+  // createCanvas() {
+  //   this.canvas = new Canvas();
+  // }
+
+  createImages() {
+    // Selecting all 'img' elements with 'data-src' attribute in the entire document
+    const imageElements = document.querySelectorAll('img[data-src]');
+
+    if (imageElements.length === 0) {
+      console.error('Failed to find any img elements with data-src attribute');
+      return;
+    }
+
+    // Since there is no specific container for these images, we'll consider the body as the 'element'
+    this.images = new Images({
+      element: document.body, // Using body as a fallback container element
+      elements: {
+        images: imageElements,
+      },
+    });
   }
 
   createContent() {
@@ -63,11 +83,18 @@ class App {
 
   onPreloaded() {
     // console.log('Preloaded'); // delete this line
-    // this.preloader.hide();
     this.preloader.destroy();
-    console.log('Preloader destroyed');
-    // this.onResize();
+    this.onResize();
+
     this.page.show();
+  }
+
+  onPopState() {
+    this.onChange({
+      url: window.location.pathname,
+      push: false,
+      // push: true,
+    });
   }
 
   async onChange(url) {
@@ -78,6 +105,10 @@ class App {
     if (request.status === 200) {
       const html = await request.text();
       const div = document.createElement('div');
+
+      if (push) {
+        window.history.pushState({}, '', url); // Change the url in the browser without reloading the page
+      }
 
       div.innerHTML = html;
 
@@ -90,9 +121,11 @@ class App {
 
       this.page = this.pages[this.template];
       this.page.create();
-      this.page.show();
 
       this.onResize();
+
+      this.page.show();
+
       this.addLinkListeners();
     } else {
       console.error('Error trying to fetch the page.');
@@ -100,12 +133,20 @@ class App {
   }
 
   onResize() {
+    // if (this.canvas) {
+    //   this.canvas.onResize();
+    // }
+
     if (this.page && this.page.onResize) {
       this.page.onResize();
     }
   }
 
   update() {
+    // if (this.canvas && this.canvas.update) {
+    //   this.canvas.update();
+    // }
+
     if (this.page && this.page.update) {
       this.page.update();
     }
@@ -124,8 +165,8 @@ class App {
         event.preventDefault();
         const { href } = link;
 
+        // this.onChange(href);
         this.onChange({ url: href });
-        // this.onChange({ href });
         // console.log(event);
       };
     });

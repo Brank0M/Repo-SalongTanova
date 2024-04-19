@@ -31,7 +31,7 @@ block content
         each item, index in images
           .about_content_item(class=item.alignment === 'left' ? 'about_content--left' : 'about_content--right')
             if item.alignment === 'left'
-              img(data-src=item.src alt=item.alt)
+              img(data-animation="image" data-src=item.src alt=item.alt)
               .about_text
                 h1.text_h1(data-animation="title")= item.name
                 role.text_role(data-animation="title")= item.role
@@ -41,7 +41,7 @@ block content
                 h1.text_h1(data-animation="title")= item.name
                 role.text_role(data-animation="title")= item.role
                 p.text_p(data-animation="paragraph")= item.text
-              img.about_img(data-src=item.src alt=item.alt)
+              img.about_img(data-animation="image" data-src=item.src alt=item.alt)
 
       .about_text_bottom
         p

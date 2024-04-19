@@ -5,6 +5,7 @@ import Prefix from 'prefix';
 import NormalizeWheel from 'normalize-wheel';
 
 import Title from '../animations/Title';
+import Images from '../animations/Images';
 import Paragraph from '../animations/Paragraph';
 import AsyncLoad from './AsyncLoad';
 
@@ -18,6 +19,7 @@ export default class Page {
 
       animationTitles: '[data-animation="title"]',
       animationParagraphs: '[data-animation="paragraph"]',
+      animationImages: '[data-animation="image"]',
 
       preloaders: '[data-src]',
     };
@@ -84,6 +86,17 @@ export default class Page {
       }
     );
 
+    //Images animation
+
+    this.animationImages = map(this.elements.animationImages, (element) => {
+      return new Images({
+        element,
+        elements: {
+          title: this.elements.title,
+        },
+      });
+    });
+
     this.animations.push(...this.animationParagraphs);
   }
 
@@ -116,7 +129,6 @@ export default class Page {
         // '-=1.5'
         {
           autoAlpha: 1,
-          onComplete: resolve,
         }
         // '-=1.5'
       ); // you can change this to 1 to see the animation
@@ -148,7 +160,7 @@ export default class Page {
   onResize() {
     if (this.elements.wrapper) {
       this.scroll.limit =
-        this.elements.wrapper.clientHeight - window.innerHeight + 277;
+        this.elements.wrapper.clientHeight - window.innerHeight;
     }
 
     each(this.animations, (animation) => animation.onResize());

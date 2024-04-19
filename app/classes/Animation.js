@@ -7,6 +7,11 @@ export default class Animation extends Component {
       elements,
     });
 
+    if (!this.element) {
+      console.error('Element is not provided or is invalid:', this.element);
+      return; // Early exit if no valid element is provided
+    }
+
     this.createObserver();
     this.animateOut();
   }
@@ -24,7 +29,11 @@ export default class Animation extends Component {
       });
     });
 
-    this.observer.observe(this.element);
+    if (this.element) {
+      this.observer.observe(this.element);
+    } else {
+      console.error('Element is not provided or is invalid:', this.element);
+    }
   }
 
   animateIn() {}

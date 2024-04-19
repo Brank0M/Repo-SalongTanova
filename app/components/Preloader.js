@@ -107,6 +107,7 @@ export default class Preloader extends Component {
       );
 
       this.animateOut.call(() => {
+        // this.destroy();
         this.emit('completed');
       });
     });
@@ -115,60 +116,71 @@ export default class Preloader extends Component {
   destroy() {
     this.element.parentNode.removeChild(this.element);
   }
-
-  //   onLoaded() {
-  //     return new Promise((resolve) => {
-  //       this.emit('completed');
-
-  //       this.animateOut = gsap.timeline({
-  //         delay: 2,
-  //       });
-
-  //       this.animateOut.to(this.elements.titleSpans, {
-  //         autoAlpha: 0,
-  //         duration: 2,
-  //         ease: 'expo.out',
-  //         stagger: 0.1,
-  //         y: '100%',
-  //       });
-
-  //       this.animateOut.to(
-  //         this.elements.numberText,
-  //         {
-  //           autoAlpha: 0,
-  //           duration: 2,
-  //           ease: 'expo.out',
-  //           stagger: 0.1,
-  //           y: '100%',
-  //         },
-  //         '-=1.5'
-  //       );
-
-  //       this.animateOut.to(
-  //         this.element,
-  //         {
-  //           // autoAlpha: 0,
-  //           duration: 2,
-  //           ease: 'expo.out',
-  //           scaleY: 0,
-  //           transformOrigin: '100% 100%',
-  //         },
-  //         '-=1.5'
-  //       );
-
-  //       this.animateOut.call(() => {
-  //         this.destroy();
-  //         resolve();
-  //       });
-  //     });
-  //   }
-
-  //   destroy() {
-  //     if (this.element && this.element.parentNode) {
-  //       this.element.parentNode.removeChild(this.element);
-  //     }
-  //   }
 }
+
+// destroy() {
+//   this.element.parentNode.removeChild(this.element);
+// }
+// createLoader() {
+//   each(this.elements.images, (element) => {
+//     element.onload = () => this.onAssetLoaded(element);
+//     element.src = element.getAttribute('data-src');
+//   });
+// }
+
+//   onLoaded() {
+//     return new Promise((resolve) => {
+//       this.emit('completed');
+
+//       this.animateOut = gsap.timeline({
+//         delay: 2,
+//       });
+
+//       this.animateOut.to(this.elements.titleSpans, {
+//         autoAlpha: 0,
+//         duration: 2,
+//         ease: 'expo.out',
+//         stagger: 0.1,
+//         y: '100%',
+//       });
+
+//       this.animateOut.to(
+//         this.elements.numberText,
+//         {
+//           autoAlpha: 0,
+//           duration: 2,
+//           ease: 'expo.out',
+//           stagger: 0.1,
+//           y: '100%',
+//         },
+//         '-=1.5'
+//       );
+
+//       this.animateOut.to(
+//         this.element,
+//         {
+//           // autoAlpha: 0,
+//           duration: 2,
+//           ease: 'expo.out',
+//           scaleY: 0,
+//           transformOrigin: '100% 100%',
+//         },
+//         '-=1.5'
+//       );
+
+//       this.animateOut.call(() => {
+//         this.destroy();
+//         resolve();
+//       });
+//     });
+//   }
+
+//   destroy() {
+//     if (this.element && this.element.parentNode) {
+//       this.element.parentNode.removeChild(this.element);
+//     }
+//   }
+// }
 
 //   createLoader() {
 //     this.loadedImages = 0; // Initialize the counter

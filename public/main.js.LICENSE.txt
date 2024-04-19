@@ -20,6 +20,8 @@
 
 /*! ../../animations/Title */
 
+/*! ../animations/Images */
+
 /*! ../animations/Paragraph */
 
 /*! ../animations/Title */
@@ -346,6 +348,8 @@
 
 /*! ./utils/stripAnsi.js */
 
+/*! animations/Images */
+
 /*! ansi-html-community */
 
 /*! classes/Animation.js */
@@ -423,6 +427,10 @@
 /*!*********************************!*\
   !*** ./app/pages/Home/index.js ***!
   \*********************************/
+
+/*!**********************************!*\
+  !*** ./app/animations/Images.js ***!
+  \**********************************/
 
 /*!**********************************!*\
   !*** ./app/classes/Animation.js ***!
