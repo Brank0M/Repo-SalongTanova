@@ -14,25 +14,25 @@
       width: 100%;
     }
 
-    .about_title_text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+    // .about_title_text {
+    //   position: absolute;
+    //   top: 50%;
+    //   left: 50%;
+    //   transform: translate(-50%, -50%);
 
-      .title_1,
-      .title_2 {
-        font-size: 4rem;
-        line-height: 1.5;
+    //   .title_1,
+    //   .title_2 {
+    //     font-size: 4rem;
+    //     line-height: 1.5;
 
-        @include media('<phone') {
-          .title_1,
-          .title_2 {
-            font-size: 5rem;
-          }
-        }
-      }
-    }
+    //     @include media('<phone') {
+    //       .title_1,
+    //       .title_2 {
+    //         font-size: 5rem;
+    //       }
+    // }
+    // }
+    // }
   }
 
   &_subtitle {
@@ -40,7 +40,7 @@
     padding: 4rem 8rem;
     text-align: center;
     margin: 0 auto;
-    font-size: 2rem;
+    font-size: 1.5rem;
 
     @include media('<phone') {
       font-size: 2.5rem;
@@ -81,7 +81,7 @@
       box-sizing: border-box;
 
       .text_h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin-bottom: 1rem;
         margin-top: 1rem;
 
@@ -91,7 +91,7 @@
       }
 
       .text_role {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-style: italic;
 
         @include media('<phone') {
@@ -100,7 +100,7 @@
       }
 
       .text_p {
-        font-size: 1.5rem;
+        font-size: 1rem;
         margin-top: 1rem;
 
         @include media('<phone') {

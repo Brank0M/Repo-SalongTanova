@@ -23,19 +23,24 @@ h3 {
   display: flex;
   position: relative;
   width: 100%;
-  height: 80px;
+  height: 5.5rem;
   justify-content: center;
   align-items: center;
+  // object-fit: cover;
+
+  @include media('<phone') {
+    height: 12rem;
+  }
 
   img {
-    padding: 1rem;
+    object-fit: scale-down;
+    // margin: 1rem;
+    // padding: 1rem;
     width: 20rem;
     // height: 4rem;
 
-    @include media('<tablet') {
-      // src: url('../logo/logo_small.png');
+    @include media('<phone') {
       padding: 1rem;
-      width: 40rem;
     }
   }
 }
@@ -44,7 +49,7 @@ h3 {
   display: flex;
 }
 
-@for $i from 2 through 6 {
+@for $i from 2 through 5 {
   .home_section_#{$i} {
     display: flex;
     padding: 4rem 8rem;
@@ -223,7 +228,8 @@ img {
 
 .btn_arrow {
   cursor: pointer;
-  rotate: 270deg;
+  object-fit: scale-down;
+  // rotate: 270deg;
 }
 
 .home_slide_slider {
@@ -484,9 +490,18 @@ img {
   }
 }
 // Section 6
+.home_section_6 {
+  @extend %flex-column;
+  @extend %center;
+  padding: 4rem 8rem;
+  @include media('<phone') {
+    padding: 4rem 8rem;
+  }
+}
 .home_section_about {
   @extend %flex-column;
   align-items: center;
+  width: 100%;
 
   @include media('<phone') {
     width: 100%;

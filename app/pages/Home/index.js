@@ -115,6 +115,15 @@ export default class Home extends Page {
 
     btnArrow.addEventListener('click', goToNextSlide);
     setInterval(goToNextSlide, 10000);
+
+    //btnArrow also has to start gif file to play when clicked
+
+    const playGif = () => {
+      btnArrow.addEventListener('click', () => {
+        btnArrow.src = '../logo/cut.gif';
+      });
+    };
+    playGif();
   };
 
   initKeuneSlider = (sliderSelector, slideSelector) => {
