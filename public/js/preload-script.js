@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",(()=>{JSON.parse(document.getElementById("preloadImagesData").textContent).forEach((e=>{(new Image).src=e}))}));

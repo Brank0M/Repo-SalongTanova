@@ -1,6 +1,8 @@
 import each from 'lodash/each';
 
 // import Canvas from 'components/Canvas';
+
+// import Detection from 'classes/Detection';
 import Navigation from 'components/Navigation';
 import Preloader from 'components/Preloader';
 import Images from 'animations/Images';
@@ -93,11 +95,10 @@ class App {
     this.onChange({
       url: window.location.pathname,
       push: false,
-      // push: true,
     });
   }
 
-  async onChange(url) {
+  async onChange(url, push = true) {
     await this.page.hide();
 
     const request = await window.fetch(url);
@@ -154,6 +155,8 @@ class App {
   }
 
   addEventListeners() {
+    window.addEventListener('popstate', this.onPopState.bind(this));
+
     window.addEventListener('resize', this.onResize.bind(this));
   }
 

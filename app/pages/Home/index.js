@@ -1,5 +1,6 @@
 import { each } from 'lodash';
 import Page from 'classes/Page';
+import Detection from 'classes/Detection';
 
 export default class Home extends Page {
   constructor() {
@@ -46,32 +47,72 @@ export default class Home extends Page {
 
   adjustVideoSize = () => {
     const videoContainer = document.querySelector('.home_video');
-
-    if (!videoContainer) {
-      return;
-    }
+    if (!videoContainer) return;
 
     const video = videoContainer.querySelector('video');
+    if (!video) return;
 
-    if (!video) {
-      return;
-    }
     const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
-
     videoContainer.style.height = `${viewportHeight}px`;
     videoContainer.style.width = `${viewportWidth}px`;
 
-    const videoAspectRatio = video.videoWidth / video.videoHeight;
+    // Define aspect ratios based on the device type
+    let videoAspectRatio = video.videoWidth / video.videoHeight;
     const viewportAspectRatio = viewportWidth / viewportHeight;
 
-    if (videoAspectRatio > viewportAspectRatio) {
-      video.style.width = 'auto';
-      video.style.height = '100%';
+    // Change aspect ratio for phones
+    if (Detection.isPhone()) {
+      if (viewportAspectRatio > 9 / 16) {
+        // Wider than 9:16, make it taller to fit the 9:16 ratio by width
+        video.style.width = '100%';
+        video.style.height = 'auto';
+      } else {
+        // Narrower than 9:16, adjust width to maintain 9:16 ratio by height
+        video.style.height = '100%';
+        video.style.width = 'auto';
+      }
     } else {
-      video.style.width = '100%';
-      video.style.height = 'auto';
+      // For non-phone devices
+      if (videoAspectRatio > viewportAspectRatio) {
+        video.style.width = 'auto';
+        video.style.height = '100%';
+      } else {
+        video.style.width = '100%';
+        video.style.height = 'auto';
+      }
     }
+
+    console.log(videoContainer.style.height, videoContainer.style.width);
   };
+
+  // adjustVideoSize = () => {
+  //   const videoContainer = document.querySelector('.home_video');
+
+  //   if (!videoContainer) {
+  //     return;
+  //   }
+
+  //   const video = videoContainer.querySelector('video');
+
+  //   if (!video) {
+  //     return;
+  //   }
+  //   const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
+
+  //   videoContainer.style.height = `${viewportHeight}px`;
+  //   videoContainer.style.width = `${viewportWidth}px`;
+
+  //   const videoAspectRatio = video.videoWidth / video.videoHeight;
+  //   const viewportAspectRatio = viewportWidth / viewportHeight;
+
+  //   if (videoAspectRatio > viewportAspectRatio) {
+  //     video.style.width = 'auto';
+  //     video.style.height = '100%';
+  //   } else {
+  //     video.style.width = '100%';
+  //     video.style.height = 'auto';
+  //   }
+  // };
 
   initTextAnimation = (selector) => {
     const textElement = document.querySelector(selector);

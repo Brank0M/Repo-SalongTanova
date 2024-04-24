@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const port = process.env.PORT || 8005;
+const UAParser = require('ua-parser-js');
 
 // const imageAssets = [
 //   '../logo/logo_small.png',
@@ -24,8 +25,17 @@ const port = process.env.PORT || 8005;
 // } else {
 //   console.error('imageAssets not loaded');
 // }
-
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use((req, res, next) => {
+  const ua = UAParser(req.headers['user-agent']);
+  res.locals.isDesktop = ua.device.type === undefined;
+  res.locals.isPhone = ua.device.type === 'mobile';
+  res.locals.isTablet = ua.device.type === 'tablet';
+
+  console.log(res.locals.isDesktop, res.locals.isPhone, res.locals.isTablet);
+  next();
+});
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
