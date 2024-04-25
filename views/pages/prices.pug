@@ -186,39 +186,6 @@ block content
                     h3 Kontakt
                     p Tel: 040420045
         .footer_ma
-            p &copy; 2024 Web development & design by STUDIO B @Brank0M
+            p &copy; 2024 Web development & design by
+              a.foLink(href="https://github.com/Brank0M")  STUDIO B @Brank0M
 
-//- block content
-//-   .container 
-//-     img.dalle(src="images/shop4a.jpg", alt="Dalle")
-//-     #webgl-container
-
-//-   .prices 
-//-     .prices_content
-//-       .prices_wrapper 
-//-         img.prices_shop(src="logo/st_logo.png", alt="Shop Logo")
-//-         h1.prices_title Pris Lista
-//-         .prices_box_wrapper
-//-           +prices_section('Klippning', [
-//-             { service: 'Dam: klippning (utan tvätt)', info: '45 - 60 min, 350-490 kr' },
-//-             { service: 'Dam: tvätt, klipp & styling', info: '60 - 90 min, 395-595 kr' },
-//-             { service: 'Barn klippning 0-14 år', info: '30 - 45 min, 290-350 kr' },
-//-             { service: 'Herr: klippning', info: '30 minuter, 470 kr' },
-//-             { service: 'Herr: klippning m. delvis maskin', info: '30 minuter, 420 kr' },
-//-             { service: 'Snagging & maskinklipp', info: '15 - 30 min, 150-220 kr' },
-//-             { service: 'Lugg', info: '15 - 30 min, 90-120 kr' }
-//-           ])
-//-           // ... Repeat for other sections like Hårfärgning, Slingor & Balayage, Tjänster, Fransar & Bryn
-
-//-         .prices_btn_wrapper  
-//-           a.prices_btn(href="https://www.bokadirekt.se/places/salong-tanova-56873") Boka tid här
-
-//- mixin prices_section(title, services)
-//-   .prices_container
-//-     .prices_box
-//-       .box_title
-//-         h3= title
-//-       each item in services
-//-         .box_text
-//-           p= item.service
-//-           | #{item.info}

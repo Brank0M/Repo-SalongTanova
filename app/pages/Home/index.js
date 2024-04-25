@@ -56,23 +56,18 @@ export default class Home extends Page {
     videoContainer.style.height = `${viewportHeight}px`;
     videoContainer.style.width = `${viewportWidth}px`;
 
-    // Define aspect ratios based on the device type
     let videoAspectRatio = video.videoWidth / video.videoHeight;
     const viewportAspectRatio = viewportWidth / viewportHeight;
 
-    // Change aspect ratio for phones
     if (Detection.isPhone()) {
       if (viewportAspectRatio > 9 / 16) {
-        // Wider than 9:16, make it taller to fit the 9:16 ratio by width
         video.style.width = '100%';
         video.style.height = 'auto';
       } else {
-        // Narrower than 9:16, adjust width to maintain 9:16 ratio by height
         video.style.height = '100%';
         video.style.width = 'auto';
       }
     } else {
-      // For non-phone devices
       if (videoAspectRatio > viewportAspectRatio) {
         video.style.width = 'auto';
         video.style.height = '100%';
@@ -82,37 +77,8 @@ export default class Home extends Page {
       }
     }
 
-    console.log(videoContainer.style.height, videoContainer.style.width);
+    // console.log(videoContainer.style.height, videoContainer.style.width);
   };
-
-  // adjustVideoSize = () => {
-  //   const videoContainer = document.querySelector('.home_video');
-
-  //   if (!videoContainer) {
-  //     return;
-  //   }
-
-  //   const video = videoContainer.querySelector('video');
-
-  //   if (!video) {
-  //     return;
-  //   }
-  //   const { innerWidth: viewportWidth, innerHeight: viewportHeight } = window;
-
-  //   videoContainer.style.height = `${viewportHeight}px`;
-  //   videoContainer.style.width = `${viewportWidth}px`;
-
-  //   const videoAspectRatio = video.videoWidth / video.videoHeight;
-  //   const viewportAspectRatio = viewportWidth / viewportHeight;
-
-  //   if (videoAspectRatio > viewportAspectRatio) {
-  //     video.style.width = 'auto';
-  //     video.style.height = '100%';
-  //   } else {
-  //     video.style.width = '100%';
-  //     video.style.height = 'auto';
-  //   }
-  // };
 
   initTextAnimation = (selector) => {
     const textElement = document.querySelector(selector);
@@ -156,8 +122,6 @@ export default class Home extends Page {
 
     btnArrow.addEventListener('click', goToNextSlide);
     setInterval(goToNextSlide, 10000);
-
-    //btnArrow also has to start gif file to play when clicked
 
     const playGif = () => {
       btnArrow.addEventListener('click', () => {
@@ -208,56 +172,3 @@ export default class Home extends Page {
     });
   };
 }
-
-// export default class Home extends Page {
-//   constructor() {
-//     super({
-//       id: 'home',
-//       element: '.home',
-//       elements: {
-//         wrapper: '.container',
-//         text: '.text',
-//         text1: '.text1',
-//         slider: '.home_slider_box',
-//         keuneSlider: '.home_keune_slider_box',
-//         switch: '.home_switch_btn',
-//         imgWoman: ".home_switch_img_box img[src='../images/img2.jpg']",
-//         imgMan: ".home_switch_img_box img[src='../images/img4.jpg']",
-//       },
-//     });
-//     this.initVideo();
-//   }
-
-//   // addEventListener() {
-//   //   window.addEventListener('resize', this.adjustVideoSize);
-//   // }
-
-//   create() {
-//     super.create();
-//     this.elements = {
-//       video: document.querySelector('.home_video'),
-//     };
-//   }
-
-//   initVideo() {
-//     document.addEventListener('DOMContentLoaded', () => {
-//       this.adjustVideoSize();
-//       this.initTextAnimation('.text1');
-//       this.initTextAnimation('.text');
-//       this.initSlider(
-//         '.home_slider_box',
-//         '.home_slide_btn a.button img.btn_arrow'
-//       );
-//       this.initKeuneSlider(
-//         '.home_keune_slider_box',
-//         '.home_keune_slider_box img.slide'
-//       );
-//       this.initImageSwitch(
-//         '.home_switch_btn',
-//         ".home_switch_img_box img[src='../images/img2.jpg']",
-//         ".home_switch_img_box img[src='../images/img4.jpg']"
-//       );
-//     });
-
-//     window.addEventListener('resize', this.adjustVideoSize);
-//   }

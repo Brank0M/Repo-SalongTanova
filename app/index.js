@@ -177,38 +177,3 @@ class App {
 }
 
 new App();
-
-// addEventListeners() {
-//   window.addEventListener('popstate', this.onPopState.bind(this));
-// }
-
-// onPopState() {
-//   this.onChange({ url: window.location.pathname });
-// }
-
-// onChange({ url, push = false }) {
-//   const request = new XMLHttpRequest();
-
-//   request.open('GET', url, true);
-//   request.onload = () => {
-//     this.onContent({ push, request });
-//   };
-//   request.send();
-// }
-
-// onContent({ push, request }) {
-//   const parser = new DOMParser();
-//   const htmlDocument = parser.parseFromString(request.response, 'text/html');
-//   const content = htmlDocument.querySelector('.content');
-
-//   this.content.replaceWith(content);
-
-//   this.content = content;
-//   this.template = this.content.getAttribute('data-template');
-
-//   if (push) {
-//     window.history.pushState({}, '', url);
-//   }
-
-//   this.createPages();
-// }

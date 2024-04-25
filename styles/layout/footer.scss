@@ -58,6 +58,12 @@
   p {
     font-size: small;
   }
+
+  a.foLink {
+    color: $color-rose-white;
+    text-decoration: none;
+    text-transform: capitalize;
+  }
 }
 
 @media only screen and (max-width: 1024px) {
