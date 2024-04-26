@@ -2,7 +2,8 @@ import each from 'lodash/each';
 
 // import Canvas from 'components/Canvas';
 
-// import Detection from 'classes/Detection';
+import Detection from 'classes/Detection';
+
 import Navigation from 'components/Navigation';
 import Preloader from 'components/Preloader';
 import Images from 'animations/Images';
@@ -140,6 +141,24 @@ class App {
 
     if (this.page && this.page.onResize) {
       this.page.onResize();
+    }
+  }
+
+  onTouchDown(event) {
+    if (this.page && this.page.onTouchDown) {
+      this.page.onTouchDown(event);
+    }
+  }
+
+  onTouchMove(event) {
+    if (this.page && this.page.onTouchMove) {
+      this.page.onTouchMove(event);
+    }
+  }
+
+  onTouchUp(event) {
+    if (this.page && this.page.onTouchUp) {
+      this.page.onTouchUp(event);
     }
   }
 

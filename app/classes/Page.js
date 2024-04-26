@@ -28,7 +28,13 @@ export default class Page {
 
     // console.log(this.transformPrefix);
 
+    // this.onMouseWheelEvent = this.onMouseWheel.bind(this);
+    this.startY = 0;
+    this.isTouching = false;
     this.onMouseWheelEvent = this.onMouseWheel.bind(this);
+    this.onTouchStartEvent = this.onTouchStart.bind(this);
+    this.onTouchMoveEvent = this.onTouchMove.bind(this);
+    this.onTouchEndEvent = this.onTouchEnd.bind(this);
   }
 
   create() {
@@ -156,6 +162,23 @@ export default class Page {
     this.scroll.target += pixelY;
   }
 
+  onTouchStart(event) {
+    this.isTouching = true;
+    this.startY = event.touches ? event.touches[0].clientY : event.clientY;
+  }
+
+  onTouchMove(event) {
+    if (this.isTouching) {
+      const currentY = event.touches ? event.touches[0].clientY : event.clientY;
+      this.scroll.target += this.startY - currentY;
+      this.startY = currentY;
+    }
+  }
+
+  onTouchEnd(event) {
+    this.isTouching = false;
+  }
+
   onResize() {
     if (this.elements.wrapper) {
       this.scroll.limit =
@@ -189,11 +212,29 @@ export default class Page {
     }
   }
 
+  // addEventlistener() {
+  //   window.addEventListener('mousewheel', this.onMouseWheelEvent);
+  // }
+
+  // removeEventlistener() {
+  //   window.removeEventListener('mousewheel', this.onMouseWheelEvent);
+  // }
+
   addEventlistener() {
     window.addEventListener('mousewheel', this.onMouseWheelEvent);
+    window.addEventListener('mousedown', this.onTouchStartEvent);
+    window.addEventListener('mouseup', this.onTouchEndEvent);
+    window.addEventListener('touchstart', this.onTouchStartEvent);
+    window.addEventListener('touchmove', this.onTouchMoveEvent);
+    window.addEventListener('touchend', this.onTouchEndEvent);
   }
 
   removeEventlistener() {
     window.removeEventListener('mousewheel', this.onMouseWheelEvent);
+    window.removeEventListener('mousedown', this.onTouchStartEvent);
+    window.removeEventListener('mouseup', this.onTouchEndEvent);
+    window.removeEventListener('touchstart', this.onTouchStartEvent);
+    window.removeEventListener('touchmove', this.onTouchMoveEvent);
+    window.removeEventListener('touchend', this.onTouchEndEvent);
   }
 }

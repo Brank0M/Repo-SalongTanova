@@ -1,68 +1,68 @@
-import { Box, Camera, Renderer, Transform, Program, Mesh } from 'ogl';
+// import { Box, Camera, Renderer, Transform, Program, Mesh } from 'ogl';
 
-export default class Canvas {
-  constructor() {
-    this.createRenderer();
-    this.createCamera();
-    this.createScene();
-    this.createCube();
-  }
+// export default class Canvas {
+//   constructor() {
+//     this.createRenderer();
+//     this.createCamera();
+//     this.createScene();
+//     this.createCube();
+//   }
 
-  createRenderer() {
-    this.renderer = new Renderer();
+//   createRenderer() {
+//     this.renderer = new Renderer();
 
-    this.gl = this.renderer.gl;
+//     this.gl = this.renderer.gl;
 
-    document.body.appendChild(this.gl.canvas);
-  }
+//     document.body.appendChild(this.gl.canvas);
+//   }
 
-  createCamera() {
-    this.camera = new Camera(this.gl);
-    this.camera.position.z = 5;
-  }
+//   createCamera() {
+//     this.camera = new Camera(this.gl);
+//     this.camera.position.z = 5;
+//   }
 
-  createScene() {
-    this.scene = new Transform();
-  }
+//   createScene() {
+//     this.scene = new Transform();
+//   }
 
-  createCube() {
-    this.geometry = new Box(this.gl);
+//   createCube() {
+//     this.geometry = new Box(this.gl);
 
-    this.program = new Program(this.gl, {
-      vertex: `
-        attribute vec3 position;
+//     this.program = new Program(this.gl, {
+//       vertex: `
+//         attribute vec3 position;
 
-        uniform mat4 modelViewMatrix;
-        uniform mat4 projectionMatrix;
+//         uniform mat4 modelViewMatrix;
+//         uniform mat4 projectionMatrix;
 
-        void main() {
+//         void main() {
 
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-      fragment: `
-        void main() {
-          gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
-        }
-      `,
-    });
+//           gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+//         }
+//       `,
+//       fragment: `
+//         void main() {
+//           gl_FragColor = vec4(1.0, 0.0, 0.0, 1.0);
+//         }
+//       `,
+//     });
 
-    this.mesh = new Mesh(this.gl, {
-      geometry: this.geometry,
-      program: this.program,
-    });
-    this.mesh.setParent(this.scene);
-  }
+//     this.mesh = new Mesh(this.gl, {
+//       geometry: this.geometry,
+//       program: this.program,
+//     });
+//     this.mesh.setParent(this.scene);
+//   }
 
-  onResize() {
-    this.renderer.setSize(window.innerWidth, window.innerHeight);
+//   onResize() {
+//     this.renderer.setSize(window.innerWidth, window.innerHeight);
 
-    this.camera.perspective({
-      aspect: window.innerWidth / window.innerHeight,
-    });
-  }
+//     this.camera.perspective({
+//       aspect: window.innerWidth / window.innerHeight,
+//     });
+//   }
 
-  update() {
-    this.renderer.render({ scene: this.scene, camera: this.camera });
-  }
-}
+//   update() {
+//     this.renderer.render({ scene: this.scene, camera: this.camera });
+//   }
+// }
