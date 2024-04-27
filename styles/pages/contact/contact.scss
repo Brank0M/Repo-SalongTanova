@@ -1,6 +1,7 @@
 .contact {
   // display: flex;
   // overflow: hidden;
+  z-index: 1;
 
   &_wrapper {
     max-width: 1200px;
@@ -14,7 +15,7 @@
 }
 
 .container {
-  // max-height: 1700px;
+  max-height: 3500px;
   // overflow: hidden;
 }
 
