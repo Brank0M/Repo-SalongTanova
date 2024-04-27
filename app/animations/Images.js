@@ -1,7 +1,5 @@
 import { gsap } from 'gsap';
 import Animation from 'classes/Animation.js';
-import each from 'lodash/each';
-// import { calculate, split } from 'utils/text.js';
 
 export default class Images extends Animation {
   constructor({ element, elements }) {

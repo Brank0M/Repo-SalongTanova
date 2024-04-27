@@ -15,7 +15,7 @@
 }
 
 .container {
-  max-height: 3500px;
+  // max-height: 3500px;
   // overflow: hidden;
 }
 
@@ -69,13 +69,12 @@
     &-2,
     &-7 {
       p {
-        // @extend %title-10;
         @extend %description-10;
         margin-bottom: 1rem;
         text-align: center;
 
         @include media('<phone') {
-          font-size: 2rem;
+          font-size: 2.5rem;
         }
       }
     }

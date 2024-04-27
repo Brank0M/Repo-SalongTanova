@@ -9,7 +9,7 @@ export default class Animation extends Component {
 
     if (!this.element) {
       console.error('Element is not provided or is invalid:', this.element);
-      return; // Early exit if no valid element is provided
+      return;
     }
 
     this.createObserver();
@@ -20,10 +20,8 @@ export default class Animation extends Component {
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          //   console.log('animateIn');
           this.animateIn();
         } else {
-          //   console.log('animateOut');
           this.animateOut();
         }
       });

@@ -11,12 +11,6 @@ export default class Paragraph extends Animation {
     });
 
     this.elementLinesSpans = split({ element: this.element, append: true });
-    // split({ element: this.element, append: true });
-    // split({ element: this.element, append: true });
-
-    // let line = this.element.querySelectorAll("span span"); // Creating an array of spans
-    // this.elementsLines = calculate(line); // Calculating the position of each span
-    // console.log(this.elementsLines);
   }
 
   animateIn() {

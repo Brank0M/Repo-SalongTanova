@@ -42,6 +42,16 @@ export default class Home extends Page {
       ".home_switch_img_box img[src='../images/img4.jpg']"
     );
 
+    const videoContainer = document.querySelector('.home_video');
+    if (videoContainer) {
+      const video = videoContainer.querySelector('video');
+      if (video) {
+        setTimeout(() => {
+          video.play();
+        }, 6000);
+      }
+    }
+
     window.addEventListener('resize', this.adjustVideoSize);
   }
 
@@ -76,8 +86,6 @@ export default class Home extends Page {
         video.style.height = 'auto';
       }
     }
-
-    // console.log(videoContainer.style.height, videoContainer.style.width);
   };
 
   initTextAnimation = (selector) => {

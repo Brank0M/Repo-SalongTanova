@@ -14,16 +14,6 @@ export default class Title extends Animation {
     split({ element: this.element, append: true });
 
     this.elementLinesSpans = this.element.querySelectorAll('span span');
-
-    // split({ element: this.element, append: true });
-    // split({ element: this.element, append: true });
-
-    // let line = this.element.querySelectorAll('span span'); // Creating an array of spans
-    // this.elementsLines = calculate(line); // Calculating the position of each span
-    // console.log(this.elementsLines);
-
-    // this.elementLinesSpans = this.element.querySelectorAll('span span'); //
-    // console.log(this.elementLinesSpans);
   }
 
   animateIn() {
@@ -61,7 +51,5 @@ export default class Title extends Animation {
 
   onResize() {
     this.elementLines = calculate(this.elementLinesSpans);
-
-    // console.log(this.elementLines);
   }
 }

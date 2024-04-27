@@ -15,7 +15,8 @@ block content
               a.button#btn(href='https://www.instagram.com/salongtanova/?igsh=MTJ1cjRpZWo0dmUzcw%3D%3D')
                 h3.text1 Instagram
           .home_video
-            video(data-animation="image" data-src='../videos/video32.mp4' type='video/mp4' onClick='this.play(autoplay=true, muted=true, loop=true)')
+            //- video(data-animation="image" data-src='../videos/video32.mp4' type='video/mp4' onClick='this.play(autoplay=true, muted=true, loop=true)')
+            video#delayed-video(data-animation="image" data-src='../videos/video32.mp4' muted loop type='video/mp4' onclick='this.play()')
             .home_btn_call 
               a.button(href='https://www.bokadirekt.se/places/salong-tanova-56873')
                 h3(data-animation="title") Boka nu
@@ -24,13 +25,13 @@ block content
           .home_section_content 
             .home_slide_title
               .home_title_box
-                h3(data-animation="title") uppnå ditt drömutseende 
+                h3(data-animation="title") Achieve your dream look 
             .home_slide_btn
               a.button
                 img.btn_arrow(data-animation="image" data-src="../logo/cut.gif" alt="arrow")
             .home_slide_text
               .home_text_box 
-                h3(data-animation="title") Bilda det och vi kommer att få det att hända
+                h3(data-animation="title") Image it and we will make it happen
           .home_slide_slider#canvas
             each image in ['../images/img1.jpg', '../images/img3.jpg', '../images/img8.jpg']
               .home_slider_box.fade
@@ -62,9 +63,9 @@ block content
                   | Vi är stolta över att använda Keune Haircosmetics på vår salong! Keune Haircosmetics, grundat 1922 av Jan M Keune i Amsterdam, är det märke vi väljer för att skapa fantastiska resultat åt våra kunder. Med sin långa historia av banbrytande innovation och högkvalitativa produkter, har Keune etablerat sig som en ledande aktör inom hårvårdsbranschen. Välkommen till vår salong, där vi använder Keune för att ge dig en oöverträffad hårvårdsupplevelse!    
             .home_keune_img
               .home_keune_img_box
-                img.first(data-animation="image" data-src="../images/keune(1).jpg" alt="keune")
-                img.second(data-animation="image" data-src="../images/keune(2).jpg" alt="keune")
-                img.third(data-animation="image" data-src="../images/keune(3).jpg" alt="keune")
+                img.first(data-animation="image" data-src="../images/keune1.jpg" alt="keune")
+                img.second(data-animation="image" data-src="../images/keune2.jpg" alt="keune")
+                img.third(data-animation="image" data-src="../images/keune3.jpg" alt="keune")
             
         .home_section_5
           .home_section_map
@@ -92,9 +93,9 @@ block content
                   h3.text om oss
             .home_about_img 
               .home_about_img_box_1
-                img(data-animation="image" data-src='../images/shop(2).jpg' alt='slider')
+                img(data-animation="image" data-src='../images/shop2.jpg' alt='slider')
               .home_about_img_box_2
-                img(data-animation="image" data-src='../images/shop(1).jpg' alt='slider')
+                img(data-animation="image" data-src='../images/shop1.jpg' alt='slider')
             .home_about_btn_2 
               .home_about_btn_box_2 
                 a.button(href='https://www.bokadirekt.se/places/salong-tanova-56873')

@@ -12,7 +12,5 @@ export default class Prices extends Page {
         wrapper: '.container',
       },
     });
-
-    // this.prices();
   }
 }

@@ -1,5 +1,5 @@
-// .home {
-// }
+.home {
+}
 
 // Section 1
 a,
@@ -11,7 +11,6 @@ h3 {
 }
 
 .container {
-  // max-height: 50vh;
 }
 
 .home_div {
@@ -26,7 +25,6 @@ h3 {
   height: 5.5rem;
   justify-content: center;
   align-items: center;
-  // object-fit: cover;
 
   @include media('<phone') {
     height: 12rem;
@@ -34,10 +32,7 @@ h3 {
 
   img {
     object-fit: scale-down;
-    // margin: 1rem;
-    // padding: 1rem;
     width: 20rem;
-    // height: 4rem;
 
     @include media('<phone') {
       padding: 1rem;
@@ -92,7 +87,6 @@ img {
   padding: 1rem 2rem;
   text-decoration: none;
   transform: rotate(-90deg);
-  // font-size: 1rem;
   h3 {
     transition: font-size 0.25s;
     letter-spacing: 0.5rem;
@@ -125,7 +119,6 @@ img {
   transform: translateX(-50%);
   h3 {
     color: $color-alizarin-crimson;
-    // font-size: 2rem;
     font-weight: 400;
     transition: font-size 0.3s ease-in-out;
   }
@@ -235,7 +228,6 @@ img {
 .btn_arrow {
   cursor: pointer;
   object-fit: scale-down;
-  // rotate: 270deg;
 }
 
 .home_slide_slider {

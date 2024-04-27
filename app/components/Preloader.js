@@ -30,12 +30,7 @@ export default class Preloader extends Component {
 
     this.length = 0;
 
-    // // console.log(this.element, this.elements);
-
     this.createLoader();
-    // setTimeout(() => {
-    //   this.emit('completed');
-    // }, 5000);
   }
 
   createLoader() {
@@ -46,18 +41,6 @@ export default class Preloader extends Component {
       element.src = element.getAttribute('data-src');
     });
   }
-
-  // onAssetLoaded(image) {
-  //   this.loadedImages++;
-  //   const percent = Math.round(
-  //     (this.loadedImages / this.elements.images.length) * 100
-  //   );
-  //   this.elements.number.textContent = `${percent}%`;
-
-  //   if (this.loadedImages === this.elements.images.length) {
-  //     this.onLoaded();
-  //   }
-  // }
 
   onAssetLoaded(image) {
     this.length += 1;
@@ -107,7 +90,6 @@ export default class Preloader extends Component {
       );
 
       this.animateOut.call(() => {
-        // this.destroy();
         this.emit('completed');
       });
     });
@@ -117,108 +99,3 @@ export default class Preloader extends Component {
     this.element.parentNode.removeChild(this.element);
   }
 }
-
-// destroy() {
-//   this.element.parentNode.removeChild(this.element);
-// }
-// createLoader() {
-//   each(this.elements.images, (element) => {
-//     element.onload = () => this.onAssetLoaded(element);
-//     element.src = element.getAttribute('data-src');
-//   });
-// }
-
-//   onLoaded() {
-//     return new Promise((resolve) => {
-//       this.emit('completed');
-
-//       this.animateOut = gsap.timeline({
-//         delay: 2,
-//       });
-
-//       this.animateOut.to(this.elements.titleSpans, {
-//         autoAlpha: 0,
-//         duration: 2,
-//         ease: 'expo.out',
-//         stagger: 0.1,
-//         y: '100%',
-//       });
-
-//       this.animateOut.to(
-//         this.elements.numberText,
-//         {
-//           autoAlpha: 0,
-//           duration: 2,
-//           ease: 'expo.out',
-//           stagger: 0.1,
-//           y: '100%',
-//         },
-//         '-=1.5'
-//       );
-
-//       this.animateOut.to(
-//         this.element,
-//         {
-//           // autoAlpha: 0,
-//           duration: 2,
-//           ease: 'expo.out',
-//           scaleY: 0,
-//           transformOrigin: '100% 100%',
-//         },
-//         '-=1.5'
-//       );
-
-//       this.animateOut.call(() => {
-//         this.destroy();
-//         resolve();
-//       });
-//     });
-//   }
-
-//   destroy() {
-//     if (this.element && this.element.parentNode) {
-//       this.element.parentNode.removeChild(this.element);
-//     }
-//   }
-// }
-
-//   createLoader() {
-//     this.loadedImages = 0; // Initialize the counter
-
-//     each(this.elements.images, (element) => {
-//       const image = new Image();
-//       image.onload = () => {
-//         this.onAssetLoaded(image);
-//       };
-//       image.src = element.src; // Make sure to set the correct source
-//     });
-// }
-
-//   onAssetLoaded(image) {
-//     this.loadedImages++;
-//     const percent = Math.round(
-//       (this.loadedImages / this.elements.images.length) * 100
-//     );
-//     this.elements.number.textContent = `${percent}%`;
-
-//     if (this.loadedImages === this.elements.images.length) {
-//       this.onLoaded();
-//     }
-//   }
-
-//   onLoaded() {
-//     const timeline = gsap.timeline();
-//     timeline.to(this.element, {
-//       autoAlpha: 0,
-//       onComplete: () => {
-//         this.emit('completed');
-//         // Optional: Clean up if needed
-//         this.destroy();
-//       },
-//     });
-
-//   destroy() {
-//     if (this.element && this.element.parentNode) {
-//       this.element.parentNode.removeChild(this.element);
-//     }
-//   }

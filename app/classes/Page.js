@@ -26,9 +26,6 @@ export default class Page {
     this.id = id;
     this.transformPrefix = Prefix('transform');
 
-    // console.log(this.transformPrefix);
-
-    // this.onMouseWheelEvent = this.onMouseWheel.bind(this);
     this.startY = 0;
     this.isTouching = false;
     this.onMouseWheelEvent = this.onMouseWheel.bind(this);
@@ -211,14 +208,6 @@ export default class Page {
       ] = `translateY(-${this.scroll.current}px)`;
     }
   }
-
-  // addEventlistener() {
-  //   window.addEventListener('mousewheel', this.onMouseWheelEvent);
-  // }
-
-  // removeEventlistener() {
-  //   window.removeEventListener('mousewheel', this.onMouseWheelEvent);
-  // }
 
   addEventlistener() {
     window.addEventListener('mousewheel', this.onMouseWheelEvent);

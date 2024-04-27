@@ -1,8 +1,6 @@
 .about {
   .container {
-    // max-height: 100vh;
-    // overflow: hidden;
-    z-index: 10; // delete
+    z-index: 10;
   }
 
   &_title_wrapper {
@@ -13,26 +11,6 @@
     .about_title_image {
       width: 100%;
     }
-
-    // .about_title_text {
-    //   position: absolute;
-    //   top: 50%;
-    //   left: 50%;
-    //   transform: translate(-50%, -50%);
-
-    //   .title_1,
-    //   .title_2 {
-    //     font-size: 4rem;
-    //     line-height: 1.5;
-
-    //     @include media('<phone') {
-    //       .title_1,
-    //       .title_2 {
-    //         font-size: 5rem;
-    //       }
-    // }
-    // }
-    // }
   }
 
   &_subtitle {

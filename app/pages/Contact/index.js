@@ -1,5 +1,4 @@
 import Page from 'classes/Page';
-import { each } from 'lodash';
 
 export default class Contact extends Page {
   constructor() {
@@ -8,10 +7,6 @@ export default class Contact extends Page {
       element: '.contact',
       elements: {
         wrapper: '.container',
-        // title: '.contact_title',
-        // text: '.contact_text',
-        // image: '.contact_image',
-        // images: '.contact_images',
       },
     });
     this.elements = {

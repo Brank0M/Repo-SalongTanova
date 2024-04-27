@@ -25,25 +25,13 @@ html {
 body {
   @extend %flex-column;
   @extend %description-15;
-  // min-height: 100vh;
-  // margin: 0;
   font-family: 'Raleway';
-  //   font-size: 1.6rem;
-  //   font-weight: 200;
   position: fixed;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
 }
-
-// .content {
-//   flex: 1;
-//   @extend %flex-column;
-//   justify-content: flex-start;
-//   padding-top: 0; // Make sure padding-top is not causing space
-//   margin-top: 0; // Reset any top margin
-// }
 
 p {
   margin: 0;
@@ -52,35 +40,6 @@ p {
     font-size: 2.5rem;
   }
 }
-// a {
-//     color: inherit;
-//     outline: none;
-//     text-decoration: none;
-// }
-
-// button {
-//     background: none;
-//     border: none;
-//     color: inherit;
-//     cursor: pointer;
-//     outline: none;
-// }
-
-// canvas {
-//     position: relative;
-//     pointer-events: none;
-//     z-index: z('canvas');
-// }
-
-// img {
-// opacity: 0;
-// transition: opacity 0.4s ease;
-// vertical-align: middle;
-
-// &.loaded {
-//   opacity: 1;
-// }
-// }
 
 .content {
   // position: absolute;

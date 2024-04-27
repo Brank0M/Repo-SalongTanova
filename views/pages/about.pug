@@ -13,7 +13,7 @@ block content
           //- h2.title_2 Stylister Kreatörer Designers
 
       .about_subtitle
-        h1.title_3(data-animation="title") Välkommen till Salong Tanova!
+        h1.title_3(data-animation="title") Välkommen till Salong Tanova
         p(data-animation="title")
           | Salongen grundades år 2024 av mig, Tanja Jovanova. Med över ett decenniums erfarenhet inom frisöryrket har jag en passion för 
           | att skapa fantastiska och personliga upplevelser för mina kunder. Mitt mål är att erbjuda högkvalitativa tjänster och skapa en 
@@ -40,7 +40,7 @@ block content
         - var images = []
         - images.push({ src: "images/about2.png", name: "Tanja Jovanova", role: "Frisör/Grundare", alt: "About Us", text: "Jag är Tanja Jovanova, grundaren av Salong Tanova. Att driva min egen salong har varit min dröm och mitt mål sedan jag först började arbeta som frisör för över ett decennium sedan. Mitt hjärta har alltid klappat extra för detta yrke - att få skapa och förvandla med bara några klipp och penseldrag är en känsla som jag inte kan få nog av. Arbetet som frisör har varit en passion som jag har följt ända sedan jag var ung. Att få hjälpa människor att känna sig vackra och självsäkra genom att lyfta deras naturliga skönhet är en underbar känsla. Varje dag får jag möjligheten att arbeta med fantastiska människor och skapa magi med deras hår. Att se mina kunders leenden när de lämnar salongen, med ett självförtroende som strålar ut, är den allra högsta belöningen för mitt arbete.", alignment: "right"})
         - images.push({ src: "images/about1.png", name: "Sofia Dzudovic", role: "Frisör/Junior",alt: "About Us", text: "Mitt namn är Sofia och jag är 21 år gammal. Jag tog studenten från frisörprogrammet år 2022 och har sedan dess jobbat som frisör i ungefär ett år. Nu har jag äntligen hittat till Salong Tanova, en salong som matchar min passion för yrket och där jag verkligen känner att jag kan utvecklas. Jag inspireras dagligen av mina härliga kollegor och den positiva atmosfären på salongen. Jag ser fram emot att möta dig och ge dig en personlig och professionell hårvårdsupplevelse!", alignment: "left"})
-        - images.push({ src: "logo/keune.png", alt: "About Us", text: "Sedan 1922 har vi tillverkat hårprodukter för proffs. Men vi är så mycket mer än bara en leverantör. Alla salonger som jobbar med oss är en del av familjen Keune. Vi säger det inte bara för att vi är ett familjeföretag, utan för att det passar vår stil. Vi vill bara det bästa för dig när du sitter i en av våra stolar. Det är därför vi gör affärer med en personlig touch.", alignment: "right"})
+        - images.push({ src: "images/keune.png", alt: "About Us", text: "Sedan 1922 har vi tillverkat hårprodukter för proffs. Men vi är så mycket mer än bara en leverantör. Alla salonger som jobbar med oss är en del av familjen Keune. Vi säger det inte bara för att vi är ett familjeföretag, utan för att det passar vår stil. Vi vill bara det bästa för dig när du sitter i en av våra stolar. Det är därför vi gör affärer med en personlig touch.", alignment: "right"})
 
         each item, index in images
           .about_content_item(class=item.alignment === 'left' ? 'about_content--left' : 'about_content--right')
@@ -59,7 +59,7 @@ block content
 
       .about_text_bottom
         p
-          | Välkommen till Salong Tanova! 
+          | Välkommen till Salong Tanova
           hr
           | Tanja Jovanova, Grundare
       .footer 

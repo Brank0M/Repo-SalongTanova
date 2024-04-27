@@ -1,7 +1,7 @@
 .container_fixed {
 }
 
-.dalle {
+.backImg {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,12 +14,9 @@
 
 .prices {
   @extend %flex-center;
-  // @extend %cover;
 }
 
 .container {
-  // overflow: hidden;
-  // max-height: 50vh;
 }
 
 .prices_content {
@@ -27,10 +24,6 @@
   width: 100%;
   padding: 4rem 8rem;
   margin-top: 5rem;
-
-  // @include media('<phone') {
-  //   padding: 4rem 8rem;
-  // }
 }
 
 .prices_wrapper {
@@ -70,7 +63,6 @@
 
 .prices_box {
   display: flex;
-  // border: 1px solid black;
   margin: 0 2rem 0rem 2rem;
   padding: 2rem;
 
@@ -100,7 +92,6 @@
 }
 
 .prices_text_info {
-  // create text in middle of the page
   @extend %flex-center;
   margin: 0 auto;
   padding: 1rem 8rem 4rem 8rem;
@@ -117,7 +108,6 @@
   margin: 0 0 3rem 0;
 
   .prices_btn {
-    // background-color: #000;
     border: none;
     color: $color-woodsmoke;
     cursor: pointer;
@@ -135,119 +125,3 @@
     }
   }
 }
-
-// // Variables for colors, sizes, and shadows
-// $background-opacity: 0.2;
-// $shadow-color: rgba(0, 0, 0, 0.5);
-// $text-color: #000;
-// $border-color: black;
-// $underline-color: black;
-// $btn-border-color: red;
-
-// // Mixins for common patterns
-// @mixin center-flex {
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// @mixin box-style {
-//   border: 1px solid $border-color;
-//   box-shadow: $shadow-color 0px 0px 10px;
-// }
-
-// // Placeholders for common styles
-// %flex-center {
-//   @include center-flex;
-// }
-
-// %box-decoration {
-//   @include box-style;
-// }
-
-// .container {
-//   // Empty class, can be removed if not used elsewhere
-// }
-
-// .dalle {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   object-fit: cover;
-//   opacity: $background-opacity;
-//   z-index: -1;
-// }
-
-// .prices {
-//   @extend %flex-center;
-// }
-
-// .prices_content {
-//   @extend %flex-center;
-//   width: 100%;
-//   padding: 4rem 8rem;
-// }
-
-// .prices_wrapper {
-//   @include center-flex;
-//   flex-direction: column;
-//   margin: 0 auto;
-//   @include box-style;
-// }
-
-// .prices_shop {
-//   @extend %flex-center;
-//   margin: 0 auto;
-//   padding: 3rem;
-//   width: 25%;
-// }
-
-// .prices_title {
-//   font-size: 2rem;
-//   font-weight: bold;
-//   margin: 1rem;
-//   text-align: center;
-// }
-
-// .prices_box_wrapper {
-//   @extend %flex-center;
-//   justify-content: space-evenly;
-// }
-
-// .prices_box {
-//   display: flex;
-//   margin: 0 2rem;
-//   padding: 2rem;
-
-//   .box_title h3 {
-//     font-size: 1.5rem;
-//     font-weight: bold;
-//     margin-bottom: 1rem;
-//     text-decoration: underline 1px solid $underline-color;
-//   }
-
-//   .box_text {
-//     font-size: 1rem;
-//     color: $text-color;
-//   }
-// }
-
-// .prices_btn_wrapper {
-//   @extend %flex-center;
-//   border: $btn-border-color 1px solid;
-//   margin: 0 0 3rem;
-
-//   .prices_btn {
-//     border: none;
-//     color: $text-color;
-//     cursor: pointer;
-//     font-size: 1rem;
-//     font-weight: bold;
-//     padding: 1rem 2rem;
-//     text-align: center;
-//     text-decoration: none;
-//     text-transform: uppercase;
-//   }
-// }
