@@ -70,6 +70,8 @@ class App {
 
     this.page = this.pages[this.template];
     this.page.create();
+
+    // this.preloader.destroy();
   }
 
   onPreloaded() {

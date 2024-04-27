@@ -48,7 +48,6 @@ export default class Preloader extends Component {
     const percent = this.length / this.elements.images.length;
 
     this.elements.numberText.innerHTML = `${Math.round(percent * 100)}%`;
-    console.log(percent);
 
     if (percent === 1) {
       this.onLoaded();
@@ -57,13 +56,15 @@ export default class Preloader extends Component {
 
   onLoaded() {
     return new Promise((resolve) => {
+      this.emit('completed');
+
       this.animateOut = gsap.timeline({
-        delay: 2,
+        delay: 1,
       });
 
       this.animateOut.to(this.elements.titleSpans, {
         autoAlpha: 0,
-        duration: 2,
+        duration: 1,
         ease: 'expo.out',
         stagger: 0.1,
         y: '100',
@@ -71,7 +72,7 @@ export default class Preloader extends Component {
 
       this.animateOut.to(this.elements.numberText, {
         autoAlpha: 0,
-        duration: 2,
+        duration: 1,
         ease: 'expo.out',
         stagger: 0.1,
         y: '100',
@@ -90,12 +91,21 @@ export default class Preloader extends Component {
       );
 
       this.animateOut.call(() => {
-        this.emit('completed');
+        this.destroy();
+        // resolve();
+        console.log('Preloader completed');
       });
     });
   }
 
+  // destroy() {
+  //   this.element.parentNode.removeChild(this.element);
+  // }
+
   destroy() {
-    this.element.parentNode.removeChild(this.element);
+    if (this.element && this.element.parentNode) {
+      this.element.parentNode.removeChild(this.element);
+    }
+    console.log('Attempting to destroy:', this.element);
   }
 }
