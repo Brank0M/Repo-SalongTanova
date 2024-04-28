@@ -71,11 +71,11 @@ class App {
     this.page = this.pages[this.template];
     this.page.create();
 
-    // this.preloader.destroy();
+    // this.preloader.destroy(); // delete the preloader CHeck here
   }
 
   onPreloaded() {
-    this.preloader.destroy();
+    // this.preloader.destroy();
     this.onResize();
 
     this.page.show();
@@ -170,6 +170,7 @@ class App {
 
         // this.onChange(href);
         this.onChange({ url: href });
+        console.log('onChange', href);
       };
     });
   }

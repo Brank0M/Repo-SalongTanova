@@ -67,6 +67,14 @@ export default class Page {
     this.createPreloader();
   }
 
+  createPreloader() {
+    this.preloaders = map(this.elements.preloaders, (element) => {
+      return new AsyncLoad({
+        element,
+      });
+    });
+  }
+
   createAnimations() {
     this.animations = [];
 
@@ -100,14 +108,6 @@ export default class Page {
     });
 
     this.animations.push(...this.animationParagraphs);
-  }
-
-  createPreloader() {
-    this.preloaders = map(this.elements.preloaders, (element) => {
-      return new AsyncLoad({
-        element,
-      });
-    });
   }
 
   show() {

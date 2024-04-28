@@ -278,7 +278,7 @@ img {
   @include media('<phone') {
     position: static;
     transform: none;
-    margin-top: 1rem 0;
+    margin-top: 1rem;
     width: 100%;
   }
 }
@@ -535,7 +535,7 @@ img {
 .home_about_btn_box {
   display: inline-block;
   padding: 1rem 2rem;
-  width: 100;
+  // width: 100;
 
   h3 {
     color: #fff;
