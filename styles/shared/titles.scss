@@ -1,16 +1,16 @@
 %title-10 {
-  font-family: $font-raleway;
+  font-family: 'Raleway';
   font-size: 1rem;
   line-height: 1.5;
 }
 
 %title-15 {
-  font-family: $font-raleway;
+  font-family: 'Raleway';
   font-size: 1.5rem;
 }
 
 %title-20 {
-  font-family: $font-raleway;
+  font-family: 'Raleway';
   font-size: 2rem;
 
   @include media('<phone') {
@@ -19,12 +19,12 @@
 }
 
 %title-30 {
-  font-family: $font-raleway;
+  font-family: 'Raleway';
   font-size: 3rem;
 }
 
 %title-50 {
-  font-family: $font-raleway;
+  font-family: 'Raleway';
   font-size: 5.3rem;
   line-height: 1;
 }

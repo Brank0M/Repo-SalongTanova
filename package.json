@@ -8,7 +8,7 @@
     "frontend:development": "webpack serve --progress --config webpack.config.development.js",
     "start": "concurrently --kill-others \"npm run backend:development\" \"npm run frontend:development\""
   },
-  "author": "Branko Mladenovic",
+  "author": "Salong Tanova",
   "license": "ISC",
   "devDependencies": {
     "babel-loader": "^9.1.3",

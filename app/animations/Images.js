@@ -15,8 +15,8 @@ export default class Images extends Animation {
 
   animateIn() {
     this.timeLineIn = gsap.timeline({
-      delay: 0.2,
-      duration: 0.2,
+      delay: 0.1,
+      duration: 0.1,
       ease: 'expo.out',
       y: 50,
     });

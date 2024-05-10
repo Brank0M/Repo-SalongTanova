@@ -36,6 +36,7 @@ export default class Page {
 
   create() {
     this.element = document.querySelector(this.selector);
+    console.log(this.element);
     this.elements = {};
 
     this.scroll = {
@@ -225,5 +226,9 @@ export default class Page {
     window.removeEventListener('touchstart', this.onTouchStartEvent);
     window.removeEventListener('touchmove', this.onTouchMoveEvent);
     window.removeEventListener('touchend', this.onTouchEndEvent);
+  }
+
+  destroy() {
+    this.removeEventlistener();
   }
 }

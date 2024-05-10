@@ -22,15 +22,23 @@ class App {
 
     this.onResize();
     this.update();
+
+    this.touchStartY = 0;
+    this.touchCurrentY = 0;
   }
 
+  // createNavigation() {
+  //   this.navigation = new Navigation({
+  //     element: document.querySelector('.navigation'),
+  //     elements: {
+  //       navLinks: document.querySelectorAll('.nav-links li'),
+  //       burgerMenu: document.querySelector('#burger'),
+  //     },
+  //   });
+  // }
   createNavigation() {
     this.navigation = new Navigation({
-      element: document.querySelector('.navigation'),
-      elements: {
-        navLinks: document.querySelectorAll('.nav-links li'),
-        burgerMenu: document.querySelector('#burger'),
-      },
+      template: this.template,
     });
   }
 
@@ -75,10 +83,10 @@ class App {
   }
 
   onPreloaded() {
-    // this.preloader.destroy();
     this.onResize();
 
     this.page.show();
+    this.preloader.destroy();
   }
 
   onPopState() {
@@ -88,10 +96,11 @@ class App {
     });
   }
 
-  async onChange(url, push = true) {
+  async onChange({ url, push = true }) {
     await this.page.hide();
 
     const request = await window.fetch(url);
+    console.log('request', request);
 
     if (request.status === 200) {
       const html = await request.text();
@@ -155,7 +164,7 @@ class App {
   }
 
   addEventListeners() {
-    window.addEventListener('popstate', this.onPopState.bind(this));
+    // window.addEventListener('popstate', this.onPopState.bind(this));
 
     window.addEventListener('resize', this.onResize.bind(this));
   }
@@ -167,10 +176,11 @@ class App {
       link.onClick = (event) => {
         event.preventDefault();
         const { href } = link;
+        console.log('Event', event);
 
         // this.onChange(href);
         this.onChange({ url: href });
-        console.log('onChange', href);
+        // this.preloader.onChange.destroy();
       };
     });
   }
